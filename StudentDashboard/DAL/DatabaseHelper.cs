@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 namespace StudentDashboard.DAL
 {
     class DatabaseHelper
-    {
+    { 
         public static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;

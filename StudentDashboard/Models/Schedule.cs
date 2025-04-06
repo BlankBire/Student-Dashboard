@@ -14,6 +14,6 @@ namespace StudentDashboard.Models
         public string description { get; set; }
         public DateTime date { get; set; }
         public TimeSpan time { get; set; }
-        public DateTime create_at { get; set; } 
+        public DateTime create_at { get; set; }
     }
 }
