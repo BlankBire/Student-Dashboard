@@ -19,7 +19,7 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             tbPassword.PasswordChar = '*';
-            tbConfirmPassword.PasswordChar = '*';
+            tbConfirmPassword.PasswordChar = '*'; 
         }
 
         private void RegisterForm_Load(object sender, EventArgs e)

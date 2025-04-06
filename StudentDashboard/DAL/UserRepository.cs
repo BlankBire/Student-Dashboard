@@ -45,7 +45,7 @@ namespace StudentDashboard.DAL
                     DatabaseHelper.CloseConnection(connection);
                 }
             }
-            return null;
+            return null; 
         }
     }
 }

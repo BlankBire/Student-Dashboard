@@ -12,6 +12,6 @@ namespace StudentDashboard.Models
         public int user_id { get; set; }
         public int schedule_id { get; set; }
         public DateTime remind_time { get; set; }
-        public string status { get; set; }
+        public string status { get; set; } 
     }
 }

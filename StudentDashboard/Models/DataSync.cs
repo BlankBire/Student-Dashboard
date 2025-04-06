@@ -11,6 +11,6 @@ namespace StudentDashboard.Models
         public int sync_id { get; set; }
         public int user_id { get; set; }
         public string status { get; set; } 
-        public DateTime last_sync { get; set; }
+        public DateTime last_sync { get; set; } 
     }
 }

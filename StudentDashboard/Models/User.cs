@@ -13,6 +13,6 @@ namespace StudentDashboard.Models
         public string user_email { get; set; }
         public string user_password { get; set; }
         public string user_role { get; set; }
-        public DateTime user_created_at { get; set; }
+        public DateTime user_created_at { get; set; } 
     }
 }

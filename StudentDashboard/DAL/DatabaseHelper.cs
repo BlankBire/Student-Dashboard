@@ -31,7 +31,7 @@ namespace StudentDashboard.DAL
             }
         }
 
-        public static void CloseConnection(MySqlConnection connection)
+        public static void CloseConnection(MySqlConnection connection) 
         {
             if (connection != null && connection.State == System.Data.ConnectionState.Open)
             {

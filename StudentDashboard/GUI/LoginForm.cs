@@ -14,7 +14,7 @@ using StudentDashboard.Utils;
 namespace StudentDashboard.GUI
 {
     public partial class LoginForm : Form
-    {
+    { 
         public LoginForm()
         {
             InitializeComponent();

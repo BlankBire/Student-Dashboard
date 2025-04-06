@@ -77,7 +77,7 @@
             Text = "Student Dashboard";
             Load += MainForm_Load;
             ResumeLayout(false);
-        }
+        } 
 
         #endregion
         private Button btLogin;
