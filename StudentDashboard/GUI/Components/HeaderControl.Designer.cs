@@ -57,6 +57,7 @@
             btHome.TabIndex = 1;
             btHome.Text = "Home";
             btHome.UseVisualStyleBackColor = true;
+            btHome.Click += btHome_Click;
             // 
             // btSupport
             // 

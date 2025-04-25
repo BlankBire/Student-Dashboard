@@ -19,7 +19,6 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = user;
-
             HeaderControl header = new HeaderControl(_currentUser);
             header.Dock = DockStyle.Top;
             this.Controls.Add(header);

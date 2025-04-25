@@ -77,7 +77,7 @@ namespace StudentDashboard.GUI
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void btBack_Click(object sender, EventArgs e)

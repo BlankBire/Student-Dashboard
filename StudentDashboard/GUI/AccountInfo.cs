@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentDashboard.GUI.Components;
 using StudentDashboard.Models;
 
 namespace StudentDashboard.GUI
@@ -20,6 +21,9 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = currentUser;
+            HeaderControl header = new HeaderControl(_currentUser);
+            header.Dock = DockStyle.Top;
+            this.Controls.Add(header);
         }
 
         private void AccountInfo_Load(object sender, EventArgs e)

@@ -23,8 +23,21 @@ namespace StudentDashboard.GUI.Components
 
         private void btAccount_Click(object sender, EventArgs e)
         {
+            // Tìm form cha (HomePage)
+            Form parentForm = this.FindForm();
+            parentForm.Hide(); // Ẩn form cha
+            // Mở AccountInfo 
             AccountInfo accountInfo = new AccountInfo(_currentUser);
             accountInfo.ShowDialog();
+        }
+
+        private void btHome_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            parentForm.Hide(); // Ẩn form cha
+            // Tạo lại form HomePage
+            HomePage homePage = new HomePage(_currentUser);
+            homePage.ShowDialog(); // mở trang chủ mới
         }
     }
 }
