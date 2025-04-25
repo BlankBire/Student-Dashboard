@@ -84,4 +84,4 @@
         private Button btRegister;
         private Label lbTitle;
     }
-} 
+}

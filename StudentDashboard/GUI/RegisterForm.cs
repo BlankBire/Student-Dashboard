@@ -48,8 +48,6 @@ namespace StudentDashboard.GUI
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-
-                // Check if username or email already exists
                 string checkQuery = "SELECT COUNT(*) FROM users WHERE user_name = @username OR user_email = @mail";
                 using (MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection))
                 {
@@ -64,7 +62,6 @@ namespace StudentDashboard.GUI
                     }
                 }
 
-                // Insert new user
                 string query = "INSERT INTO users (user_name, user_email, user_password, user_role, user_created_at) VALUES (@username, @mail, @password, 'user', NOW())";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -76,7 +73,11 @@ namespace StudentDashboard.GUI
                 }
             }
             MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
+            // Đăng nhập ngay sau khi đăng ký thành công
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            this.Close();
         }
 
         private void btBack_Click(object sender, EventArgs e)
@@ -84,4 +85,4 @@ namespace StudentDashboard.GUI
             Close();
         }
     }
-}
+} 

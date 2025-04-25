@@ -14,4 +14,4 @@ namespace StudentDashboard.GUI
             Application.Run(new MainForm());
         }
     }
-}
+} 

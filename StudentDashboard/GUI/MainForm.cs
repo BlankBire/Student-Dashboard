@@ -23,14 +23,18 @@ namespace StudentDashboard.GUI
 
         private void btRegister_Click(object sender, EventArgs e)
         {
+            this.Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.ShowDialog();
+            this.Show();
         }
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            LoginForm loginForm = new LoginForm(); 
             loginForm.ShowDialog();
+            this.Show();
         }
     }
 }

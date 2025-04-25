@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1887, 1146);
+            ClientSize = new Size(1895, 1146);
             Controls.Add(tbConfirmPassword);
             Controls.Add(lbConfirmPassword);
             Controls.Add(btBack);
@@ -158,7 +158,7 @@
             Controls.Add(tbUserName);
             Controls.Add(lbUserName);
             Name = "RegisterForm";
-            Text = "Đăng kí";
+            Text = "Register";
             Load += RegisterForm_Load;
             ResumeLayout(false);
             PerformLayout();

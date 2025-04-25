@@ -40,7 +40,7 @@
             // lbTitle
             // 
             lbTitle.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbTitle.Location = new Point(604, 160);
+            lbTitle.Location = new Point(658, 161);
             lbTitle.Name = "lbTitle";
             lbTitle.Size = new Size(489, 62);
             lbTitle.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             lbUserName.AutoSize = true;
             lbUserName.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbUserName.Location = new Point(495, 433);
+            lbUserName.Location = new Point(555, 435);
             lbUserName.Name = "lbUserName";
             lbUserName.Size = new Size(193, 29);
             lbUserName.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // tbUserName
             // 
-            tbUserName.Location = new Point(694, 433);
+            tbUserName.Location = new Point(754, 433);
             tbUserName.Name = "tbUserName";
             tbUserName.Size = new Size(524, 31);
             tbUserName.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbPassword.Location = new Point(563, 553);
+            lbPassword.Location = new Point(623, 555);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(125, 29);
             lbPassword.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // tbPassword
             // 
-            tbPassword.Location = new Point(694, 553);
+            tbPassword.Location = new Point(754, 553);
             tbPassword.Name = "tbPassword";
             tbPassword.Size = new Size(524, 31);
             tbPassword.TabIndex = 4;
@@ -85,7 +85,7 @@
             // btLogin
             // 
             btLogin.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btLogin.Location = new Point(495, 753);
+            btLogin.Location = new Point(563, 753);
             btLogin.Name = "btLogin";
             btLogin.Size = new Size(213, 91);
             btLogin.TabIndex = 5;
@@ -96,7 +96,7 @@
             // btBack
             // 
             btBack.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btBack.Location = new Point(916, 753);
+            btBack.Location = new Point(1207, 753);
             btBack.Name = "btBack";
             btBack.Size = new Size(213, 91);
             btBack.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1768, 1109);
+            ClientSize = new Size(1895, 1146);
             Controls.Add(btBack);
             Controls.Add(btLogin);
             Controls.Add(tbPassword);
@@ -117,7 +117,7 @@
             Controls.Add(lbUserName);
             Controls.Add(lbTitle);
             Name = "LoginForm";
-            Text = "Đăng nhập";
+            Text = "Log in";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using StudentDashboard.DAL;
 using StudentDashboard.Utils;
+using StudentDashboard.Models;
+using StudentDashboard.GUI;
 
 namespace StudentDashboard.GUI
 {
@@ -25,43 +27,63 @@ namespace StudentDashboard.GUI
         {
             string username = tbUserName.Text;
             string password = tbPassword.Text;
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string connectionString = DatabaseHelper.GetConnectionString(); // Lấy chuỗi kết nối từ App.config
+
+            string connectionString = DatabaseHelper.GetConnectionString();
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Check if username exists
-                string checkUserQuery = "SELECT user_password FROM users WHERE user_name = @username";
-                using (MySqlCommand checkUserCommand = new MySqlCommand(checkUserQuery, connection))
+                string checkUserQuery = "SELECT * FROM users WHERE user_name = @username";
+                using (MySqlCommand command = new MySqlCommand(checkUserQuery, connection))
                 {
-                    checkUserCommand.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@username", username);
 
-                    object result = checkUserCommand.ExecuteScalar();
-                    if (result == null)
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        MessageBox.Show("Tài khoản không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Tài khoản không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
 
-                    string storedHashedPassword = result.ToString();
-                    if (!HashHelper.VerifyPassword(password, storedHashedPassword))
-                    {
-                        MessageBox.Show("Mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        reader.Read();
+                        string storedHashedPassword = reader["user_password"].ToString();
+
+                        if (!HashHelper.VerifyPassword(password, storedHashedPassword))
+                        {
+                            MessageBox.Show("Mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Tạo đối tượng currentUser
+                        UserModel currentUser = new UserModel
+                        {
+                            UserName = reader["user_name"].ToString(),
+                            Email = reader["user_email"].ToString(),
+                            CreatedAt = Convert.ToDateTime(reader["user_created_at"])
+                        };
+
+                        MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Hide();
+                        HomePage homePage = new HomePage(currentUser);
+                        homePage.ShowDialog();
+                        this.Show();
                     }
                 }
             }
-            MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
 
         private void btBack_Click(object sender, EventArgs e)
         {
             Close();
         }
     }
-}
+} 

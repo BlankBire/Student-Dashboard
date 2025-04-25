@@ -26,7 +26,7 @@ namespace StudentDashboard.DAL
             catch (Exception ex)
             {
                 // Xử lý lỗi
-                Console.WriteLine("Lỗi kết nối DB: " + ex.Message);
+                Console.WriteLine("Lỗi kết nối DB: " + ex.Message); 
                 return null;
             }
         }
