@@ -6,6 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Button btnSchedule;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,13 +29,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnSchedule = new Button();
             SuspendLayout();
+            // 
+            // btnSchedule
+            // 
+            btnSchedule.Location = new Point(42, 160);
+            btnSchedule.Name = "btnSchedule";
+            btnSchedule.Size = new Size(200, 50);
+            btnSchedule.TabIndex = 0;
+            btnSchedule.Text = "Lập thời khóa biểu";
+            btnSchedule.UseVisualStyleBackColor = true;
+            btnSchedule.Click += btnSchedule_Click;
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1895, 1146);
+            Controls.Add(btnSchedule);
             Name = "HomePage";
             Text = "Home page";
             Load += HomePage_Load;

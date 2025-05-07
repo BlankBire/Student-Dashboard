@@ -28,5 +28,11 @@ namespace StudentDashboard.GUI
         {
 
         }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            var scheduleForm = new ScheduleForm(_currentUser.UserID);
+            scheduleForm.ShowDialog();
+        }
     }
 }
