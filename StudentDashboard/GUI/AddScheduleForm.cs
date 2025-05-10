@@ -79,5 +79,10 @@ namespace StudentDashboard.GUI
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void dtpStartTime_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 } 
