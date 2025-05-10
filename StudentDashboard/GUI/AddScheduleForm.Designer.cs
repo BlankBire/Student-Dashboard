@@ -59,93 +59,104 @@ namespace StudentDashboard.GUI
             // lblSubject
             // 
             lblSubject.AutoSize = true;
-            lblSubject.Location = new Point(30, 60);
+            lblSubject.Location = new Point(21, 36);
+            lblSubject.Margin = new Padding(2, 0, 2, 0);
             lblSubject.Name = "lblSubject";
-            lblSubject.Size = new Size(83, 25);
+            lblSubject.Size = new Size(55, 15);
             lblSubject.TabIndex = 0;
             lblSubject.Text = "Môn học";
             // 
             // cbSubject
             // 
             cbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSubject.Location = new Point(150, 57);
+            cbSubject.Location = new Point(105, 34);
+            cbSubject.Margin = new Padding(2, 2, 2, 2);
             cbSubject.Name = "cbSubject";
-            cbSubject.Size = new Size(250, 33);
+            cbSubject.Size = new Size(176, 23);
             cbSubject.TabIndex = 1;
             // 
             // lblTeacher
             // 
             lblTeacher.AutoSize = true;
-            lblTeacher.Location = new Point(30, 100);
+            lblTeacher.Location = new Point(21, 60);
+            lblTeacher.Margin = new Padding(2, 0, 2, 0);
             lblTeacher.Name = "lblTeacher";
-            lblTeacher.Size = new Size(85, 25);
+            lblTeacher.Size = new Size(56, 15);
             lblTeacher.TabIndex = 2;
             lblTeacher.Text = "Giáo viên";
             // 
             // cbTeacher
             // 
             cbTeacher.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTeacher.Location = new Point(150, 97);
+            cbTeacher.Location = new Point(105, 58);
+            cbTeacher.Margin = new Padding(2, 2, 2, 2);
             cbTeacher.Name = "cbTeacher";
-            cbTeacher.Size = new Size(250, 33);
+            cbTeacher.Size = new Size(176, 23);
             cbTeacher.TabIndex = 3;
             // 
             // lblRoom
             // 
             lblRoom.AutoSize = true;
-            lblRoom.Location = new Point(30, 140);
+            lblRoom.Location = new Point(21, 84);
+            lblRoom.Margin = new Padding(2, 0, 2, 0);
             lblRoom.Name = "lblRoom";
-            lblRoom.Size = new Size(64, 25);
+            lblRoom.Size = new Size(42, 15);
             lblRoom.TabIndex = 4;
             lblRoom.Text = "Phòng";
             // 
             // cbRoom
             // 
             cbRoom.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRoom.Location = new Point(150, 137);
+            cbRoom.Location = new Point(105, 82);
+            cbRoom.Margin = new Padding(2, 2, 2, 2);
             cbRoom.Name = "cbRoom";
-            cbRoom.Size = new Size(250, 33);
+            cbRoom.Size = new Size(176, 23);
             cbRoom.TabIndex = 5;
             // 
             // lblClass
             // 
             lblClass.AutoSize = true;
-            lblClass.Location = new Point(30, 180);
+            lblClass.Location = new Point(21, 108);
+            lblClass.Margin = new Padding(2, 0, 2, 0);
             lblClass.Name = "lblClass";
-            lblClass.Size = new Size(42, 25);
+            lblClass.Size = new Size(27, 15);
             lblClass.TabIndex = 6;
             lblClass.Text = "Lớp";
             // 
             // cbClass
             // 
             cbClass.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbClass.Location = new Point(150, 177);
+            cbClass.Location = new Point(105, 106);
+            cbClass.Margin = new Padding(2, 2, 2, 2);
             cbClass.Name = "cbClass";
-            cbClass.Size = new Size(250, 33);
+            cbClass.Size = new Size(176, 23);
             cbClass.TabIndex = 7;
             // 
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(30, 220);
+            lblDate.Location = new Point(21, 132);
+            lblDate.Margin = new Padding(2, 0, 2, 0);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(54, 25);
+            lblDate.Size = new Size(35, 15);
             lblDate.TabIndex = 8;
             lblDate.Text = "Ngày";
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(150, 217);
+            dtpDate.Location = new Point(105, 130);
+            dtpDate.Margin = new Padding(2, 2, 2, 2);
             dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(250, 31);
+            dtpDate.Size = new Size(176, 23);
             dtpDate.TabIndex = 9;
             // 
             // lblStartTime
             // 
             lblStartTime.AutoSize = true;
-            lblStartTime.Location = new Point(30, 260);
+            lblStartTime.Location = new Point(21, 156);
+            lblStartTime.Margin = new Padding(2, 0, 2, 0);
             lblStartTime.Name = "lblStartTime";
-            lblStartTime.Size = new Size(105, 25);
+            lblStartTime.Size = new Size(68, 15);
             lblStartTime.TabIndex = 10;
             lblStartTime.Text = "Giờ bắt đầu";
             // 
@@ -153,18 +164,21 @@ namespace StudentDashboard.GUI
             // 
             dtpStartTime.CustomFormat = "HH:mm";
             dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(150, 257);
+            dtpStartTime.Location = new Point(105, 154);
+            dtpStartTime.Margin = new Padding(2, 2, 2, 2);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.ShowUpDown = true;
-            dtpStartTime.Size = new Size(250, 31);
+            dtpStartTime.Size = new Size(176, 23);
             dtpStartTime.TabIndex = 11;
+            dtpStartTime.ValueChanged += dtpStartTime_ValueChanged;
             // 
             // lblEndTime
             // 
             lblEndTime.AutoSize = true;
-            lblEndTime.Location = new Point(30, 300);
+            lblEndTime.Location = new Point(21, 180);
+            lblEndTime.Margin = new Padding(2, 0, 2, 0);
             lblEndTime.Name = "lblEndTime";
-            lblEndTime.Size = new Size(107, 25);
+            lblEndTime.Size = new Size(71, 15);
             lblEndTime.TabIndex = 12;
             lblEndTime.Text = "Giờ kết thúc";
             // 
@@ -172,52 +186,58 @@ namespace StudentDashboard.GUI
             // 
             dtpEndTime.CustomFormat = "HH:mm";
             dtpEndTime.Format = DateTimePickerFormat.Custom;
-            dtpEndTime.Location = new Point(150, 297);
+            dtpEndTime.Location = new Point(105, 178);
+            dtpEndTime.Margin = new Padding(2, 2, 2, 2);
             dtpEndTime.Name = "dtpEndTime";
             dtpEndTime.ShowUpDown = true;
-            dtpEndTime.Size = new Size(250, 31);
+            dtpEndTime.Size = new Size(176, 23);
             dtpEndTime.TabIndex = 13;
             // 
             // lblSemester
             // 
             lblSemester.AutoSize = true;
-            lblSemester.Location = new Point(30, 340);
+            lblSemester.Location = new Point(21, 204);
+            lblSemester.Margin = new Padding(2, 0, 2, 0);
             lblSemester.Name = "lblSemester";
-            lblSemester.Size = new Size(67, 25);
+            lblSemester.Size = new Size(44, 15);
             lblSemester.TabIndex = 14;
             lblSemester.Text = "Học kỳ";
             // 
             // txtSemester
             // 
-            txtSemester.Location = new Point(150, 337);
+            txtSemester.Location = new Point(105, 202);
+            txtSemester.Margin = new Padding(2, 2, 2, 2);
             txtSemester.Name = "txtSemester";
-            txtSemester.Size = new Size(250, 31);
+            txtSemester.Size = new Size(176, 23);
             txtSemester.TabIndex = 15;
             // 
             // lblAcademicYear
             // 
             lblAcademicYear.AutoSize = true;
-            lblAcademicYear.Location = new Point(30, 380);
+            lblAcademicYear.Location = new Point(21, 228);
+            lblAcademicYear.Margin = new Padding(2, 0, 2, 0);
             lblAcademicYear.Name = "lblAcademicYear";
-            lblAcademicYear.Size = new Size(84, 25);
+            lblAcademicYear.Size = new Size(56, 15);
             lblAcademicYear.TabIndex = 16;
             lblAcademicYear.Text = "Năm học";
             // 
             // numAcademicYear
             // 
-            numAcademicYear.Location = new Point(150, 377);
+            numAcademicYear.Location = new Point(105, 226);
+            numAcademicYear.Margin = new Padding(2, 2, 2, 2);
             numAcademicYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
             numAcademicYear.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
             numAcademicYear.Name = "numAcademicYear";
-            numAcademicYear.Size = new Size(250, 31);
+            numAcademicYear.Size = new Size(175, 23);
             numAcademicYear.TabIndex = 17;
             numAcademicYear.Value = new decimal(new int[] { 2024, 0, 0, 0 });
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(150, 420);
+            btnSave.Location = new Point(105, 252);
+            btnSave.Margin = new Padding(2, 2, 2, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(120, 40);
+            btnSave.Size = new Size(84, 24);
             btnSave.TabIndex = 18;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = true;
@@ -225,9 +245,9 @@ namespace StudentDashboard.GUI
             // 
             // AddScheduleForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(450, 486);
+            ClientSize = new Size(315, 292);
             Controls.Add(lblSubject);
             Controls.Add(cbSubject);
             Controls.Add(lblTeacher);
@@ -247,6 +267,7 @@ namespace StudentDashboard.GUI
             Controls.Add(lblAcademicYear);
             Controls.Add(numAcademicYear);
             Controls.Add(btnSave);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AddScheduleForm";
             Text = "Thêm thời khóa biểu";
             ((System.ComponentModel.ISupportInitialize)numAcademicYear).EndInit();

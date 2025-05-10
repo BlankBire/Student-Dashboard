@@ -19,7 +19,7 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             tbPassword.PasswordChar = '*';
-            tbConfirmPassword.PasswordChar = '*'; 
+            tbConfirmPassword.PasswordChar = '*';
         }
 
         private void RegisterForm_Load(object sender, EventArgs e)
@@ -83,6 +83,76 @@ namespace StudentDashboard.GUI
         private void btBack_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lbUserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CirclePictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CirclePictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 } 
