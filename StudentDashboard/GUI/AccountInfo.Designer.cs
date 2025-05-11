@@ -102,7 +102,7 @@
             Controls.Add(tbUserName);
             Controls.Add(lbUserName);
             Name = "AccountInfo";
-            Text = "Account info";
+            Text = "Thông tin tài khoản";
             Load += AccountInfo_Load;
             ResumeLayout(false);
             PerformLayout();

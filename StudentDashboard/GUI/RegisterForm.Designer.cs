@@ -63,10 +63,10 @@
             tbUserName.BorderStyle = BorderStyle.None;
             tbUserName.Font = new Font("Segoe UI", 13F);
             tbUserName.ForeColor = Color.FromArgb(0, 117, 214);
-            tbUserName.Location = new Point(137, 237);
+            tbUserName.Location = new Point(303, 237);
             tbUserName.Margin = new Padding(2);
             tbUserName.Name = "tbUserName";
-            tbUserName.Size = new Size(302, 24);
+            tbUserName.Size = new Size(302, 35);
             tbUserName.TabIndex = 1;
             tbUserName.TextChanged += tbUserName_TextChanged;
             // 
@@ -75,10 +75,10 @@
             tbEmail.BorderStyle = BorderStyle.None;
             tbEmail.Font = new Font("Segoe UI", 13F);
             tbEmail.ForeColor = Color.FromArgb(0, 117, 214);
-            tbEmail.Location = new Point(137, 315);
+            tbEmail.Location = new Point(303, 315);
             tbEmail.Margin = new Padding(2);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(298, 24);
+            tbEmail.Size = new Size(298, 35);
             tbEmail.TabIndex = 3;
             tbEmail.TextChanged += tbEmail_TextChanged;
             // 
@@ -87,10 +87,10 @@
             tbPassword.BorderStyle = BorderStyle.None;
             tbPassword.Font = new Font("Segoe UI", 15F);
             tbPassword.ForeColor = Color.FromArgb(0, 117, 214);
-            tbPassword.Location = new Point(135, 395);
+            tbPassword.Location = new Point(303, 395);
             tbPassword.Margin = new Padding(2);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(302, 27);
+            tbPassword.Size = new Size(302, 40);
             tbPassword.TabIndex = 5;
             tbPassword.TextChanged += tbPassword_TextChanged_1;
             // 
@@ -98,13 +98,13 @@
             // 
             lbTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitle.ForeColor = Color.FromArgb(0, 117, 214);
-            lbTitle.Location = new Point(136, 152);
+            lbTitle.Location = new Point(344, 152);
             lbTitle.Margin = new Padding(2, 0, 2, 0);
             lbTitle.Name = "lbTitle";
             lbTitle.RightToLeft = RightToLeft.Yes;
-            lbTitle.Size = new Size(237, 54);
+            lbTitle.Size = new Size(237, 67);
             lbTitle.TabIndex = 6;
-            lbTitle.Text = "Đăng ký ";
+            lbTitle.Text = "Đăng kí";
             lbTitle.TextAlign = ContentAlignment.MiddleCenter;
             lbTitle.Click += lbTitle_Click;
             // 
@@ -117,10 +117,10 @@
             btRegister.FlatStyle = FlatStyle.Flat;
             btRegister.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btRegister.ForeColor = Color.WhiteSmoke;
-            btRegister.Location = new Point(88, 513);
+            btRegister.Location = new Point(271, 597);
             btRegister.Margin = new Padding(2);
             btRegister.Name = "btRegister";
-            btRegister.Size = new Size(361, 34);
+            btRegister.Size = new Size(361, 44);
             btRegister.TabIndex = 7;
             btRegister.Text = "Đăng kí";
             btRegister.UseMnemonic = false;
@@ -131,10 +131,10 @@
             // 
             btBack.BackColor = SystemColors.HighlightText;
             btBack.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btBack.Location = new Point(312, 566);
+            btBack.Location = new Point(478, 683);
             btBack.Margin = new Padding(2);
             btBack.Name = "btBack";
-            btBack.Size = new Size(123, 27);
+            btBack.Size = new Size(123, 35);
             btBack.TabIndex = 8;
             btBack.Text = "Quay lại";
             btBack.UseVisualStyleBackColor = false;
@@ -145,10 +145,10 @@
             tbConfirmPassword.BorderStyle = BorderStyle.None;
             tbConfirmPassword.Font = new Font("Segoe UI", 15F);
             tbConfirmPassword.ForeColor = Color.FromArgb(0, 117, 214);
-            tbConfirmPassword.Location = new Point(137, 463);
+            tbConfirmPassword.Location = new Point(303, 480);
             tbConfirmPassword.Margin = new Padding(2);
             tbConfirmPassword.Name = "tbConfirmPassword";
-            tbConfirmPassword.Size = new Size(302, 27);
+            tbConfirmPassword.Size = new Size(302, 40);
             tbConfirmPassword.TabIndex = 10;
             tbConfirmPassword.TextChanged += tbConfirmPassword_TextChanged;
             // 
@@ -156,9 +156,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(117, 573);
+            label1.Location = new Point(238, 693);
             label1.Name = "label1";
-            label1.Size = new Size(145, 15);
+            label1.Size = new Size(218, 25);
             label1.TabIndex = 11;
             label1.Text = "Already have an account ?";
             // 
@@ -176,7 +176,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.uit_logo1;
-            pictureBox1.Location = new Point(182, 52);
+            pictureBox1.Location = new Point(387, 52);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(158, 97);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -187,7 +187,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.person;
-            pictureBox2.Location = new Point(88, 237);
+            pictureBox2.Location = new Point(262, 237);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(25, 25);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -198,7 +198,7 @@
             // panel1
             // 
             panel1.BackColor = Color.RoyalBlue;
-            panel1.Location = new Point(137, 267);
+            panel1.Location = new Point(303, 267);
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 1);
             panel1.TabIndex = 16;
@@ -207,7 +207,7 @@
             // panel2
             // 
             panel2.BackColor = Color.RoyalBlue;
-            panel2.Location = new Point(135, 346);
+            panel2.Location = new Point(303, 348);
             panel2.Name = "panel2";
             panel2.Size = new Size(300, 1);
             panel2.TabIndex = 17;
@@ -215,7 +215,7 @@
             // panel3
             // 
             panel3.BackColor = Color.RoyalBlue;
-            panel3.Location = new Point(137, 426);
+            panel3.Location = new Point(301, 434);
             panel3.Name = "panel3";
             panel3.Size = new Size(300, 1);
             panel3.TabIndex = 18;
@@ -223,7 +223,7 @@
             // panel4
             // 
             panel4.BackColor = Color.RoyalBlue;
-            panel4.Location = new Point(137, 493);
+            panel4.Location = new Point(301, 519);
             panel4.Name = "panel4";
             panel4.Size = new Size(300, 1);
             panel4.TabIndex = 19;
@@ -231,7 +231,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.password;
-            pictureBox3.Location = new Point(88, 395);
+            pictureBox3.Location = new Point(262, 395);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(25, 25);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -241,7 +241,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(88, 315);
+            pictureBox4.Location = new Point(262, 315);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(25, 25);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -251,7 +251,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.password;
-            pictureBox5.Location = new Point(88, 463);
+            pictureBox5.Location = new Point(262, 480);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(25, 25);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -260,10 +260,10 @@
             // 
             // RegisterForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 14F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(590, 705);
+            ClientSize = new Size(938, 851);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
@@ -285,7 +285,7 @@
             Font = new Font("Bauhaus 93", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2);
             Name = "RegisterForm";
-            Text = "t";
+            Text = "Đăng kí";
             Load += RegisterForm_Load;
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
