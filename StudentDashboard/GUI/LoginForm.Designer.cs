@@ -117,7 +117,7 @@
             Controls.Add(lbUserName);
             Controls.Add(lbTitle);
             Name = "LoginForm";
-            Text = "Log in";
+            Text = "Đăng nhập";
             ResumeLayout(false);
             PerformLayout();
         }

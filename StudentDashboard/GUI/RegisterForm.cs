@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using StudentDashboard.DAL;
 using StudentDashboard.Utils;
+using System.Drawing.Drawing2D;
+
 
 namespace StudentDashboard.GUI
 {
@@ -20,11 +22,21 @@ namespace StudentDashboard.GUI
             InitializeComponent();
             tbPassword.PasswordChar = '*';
             tbConfirmPassword.PasswordChar = '*';
+            this.Load += RegisterForm_Load;
         }
 
         private void RegisterForm_Load(object sender, EventArgs e)
         {
-
+            // Bo góc cho nút btRegister
+            GraphicsPath path = new GraphicsPath();
+            int radius = 20; // độ cong góc
+            Rectangle rect = btRegister.ClientRectangle;
+            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+            path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+            path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+            btRegister.Region = new Region(path);
         }
 
         private void btRegister_Click(object sender, EventArgs e)

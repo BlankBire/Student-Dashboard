@@ -49,7 +49,7 @@
             ClientSize = new Size(1895, 1146);
             Controls.Add(btnSchedule);
             Name = "HomePage";
-            Text = "Home page";
+            Text = "Trang chủ";
             Load += HomePage_Load;
             ResumeLayout(false);
         }
