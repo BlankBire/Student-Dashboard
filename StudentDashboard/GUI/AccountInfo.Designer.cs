@@ -34,6 +34,7 @@
             tbEmail = new TextBox();
             lbCreateAT = new Label();
             tbCreateAT = new TextBox();
+            btLogout = new Button();
             SuspendLayout();
             // 
             // lbUserName
@@ -90,11 +91,22 @@
             tbCreateAT.Size = new Size(447, 31);
             tbCreateAT.TabIndex = 5;
             // 
+            // btLogout
+            // 
+            btLogout.Location = new Point(1211, 733);
+            btLogout.Name = "btLogout";
+            btLogout.Size = new Size(112, 34);
+            btLogout.TabIndex = 6;
+            btLogout.Text = "Đăng xuất";
+            btLogout.UseVisualStyleBackColor = true;
+            btLogout.Click += btLogout_Click;
+            // 
             // AccountInfo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1895, 1146);
+            Controls.Add(btLogout);
             Controls.Add(tbCreateAT);
             Controls.Add(lbCreateAT);
             Controls.Add(tbEmail);
@@ -116,5 +128,6 @@
         private TextBox tbEmail;
         private Label lbCreateAT;
         private TextBox tbCreateAT;
+        private Button btLogout;
     }
 }

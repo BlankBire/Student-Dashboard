@@ -36,5 +36,30 @@ namespace StudentDashboard.GUI
             tbEmail.Text = _currentUser.Email;
             tbCreateAT.Text = _currentUser.CreatedAt.ToString("dd/MM/yyyy");
         }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            // Đóng tất cả các form ngoại trừ MainForm
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (!(form is MainForm))
+                {
+                    form.Close();
+                }
+            }
+
+            // Hiển thị lại MainForm
+            foreach (Form form in Application.OpenForms.Cast<Form>())
+            {
+                if (form is MainForm mainForm)
+                {
+                    mainForm.Show();
+                    break;
+                }
+            }
+
+            // Đóng form hiện tại (AccountInfo)
+            this.Close();
+        }
     }
 }
