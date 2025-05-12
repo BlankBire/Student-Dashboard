@@ -62,6 +62,25 @@ namespace StudentDashboard.GUI
             var end = dtpEndTime.Value;
             var startTime = new TimeSpan(start.Hour, start.Minute, 0);
             var endTime = new TimeSpan(end.Hour, end.Minute, 0);
+            var date = dtpDate.Value.Date;
+
+            var scheduleDAL = new ScheduleDAL();
+            var userSchedules = scheduleDAL.GetSchedulesByUserAndDate(_userId, date);
+
+            bool IsOverlapping(TimeSpan s1, TimeSpan e1, TimeSpan s2, TimeSpan e2) =>
+                s1 < e2 && s2 < e1;
+
+            // Kiểm tra trùng lịch người dùng
+            foreach (var s in userSchedules)
+            {
+                if (s.start_time.HasValue && s.end_time.HasValue &&
+                    IsOverlapping(startTime, endTime, s.start_time.Value, s.end_time.Value))
+                {
+                    MessageBox.Show($"Bạn đã có môn '{s.subject_name}' từ {s.start_time:hh\\:mm} đến {s.end_time:hh\\:mm}.");
+                    return;
+                }
+            }
+
             // Tạo đối tượng Schedule (có UserID)
             NewSchedule = new Schedule
             {
@@ -70,7 +89,7 @@ namespace StudentDashboard.GUI
                 teacher_name = ((Teacher)cbTeacher.SelectedItem).teacher_name,
                 room = ((Room)cbRoom.SelectedItem).room_name,
                 class_name = ((ClassModel)cbClass.SelectedItem).class_name,
-                date = dtpDate.Value.Date,
+                date = date,
                 start_time = startTime,
                 end_time = endTime,
                 semester = txtSemester.Text.Trim(),
