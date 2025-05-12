@@ -14,9 +14,9 @@ namespace StudentDashboard.BLL
             scheduleDAL = new ScheduleDAL();
         }
 
-        public List<Schedule> GetAllSchedules()
+        public List<Schedule> GetAllSchedulesSorted()
         {
-            return scheduleDAL.GetAllSchedules();
+            return scheduleDAL.GetAllSchedulesSorted();
         }
 
         public Schedule GetScheduleById(int id)

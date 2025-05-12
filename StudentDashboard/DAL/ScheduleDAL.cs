@@ -35,6 +35,31 @@ namespace StudentDashboard.DAL
             }
             return schedules;
         }
+        public List<Schedule> GetAllSchedulesSorted()
+        {
+            List<Schedule> schedules = new List<Schedule>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                string query = @"SELECT * FROM schedules 
+                         ORDER BY academic_year ASC, 
+                                  semester ASC, 
+                                  date ASC, 
+                                  start_time ASC";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            schedules.Add(MapReaderToSchedule(reader));
+                        }
+                    }
+                }
+            }
+            return schedules;
+        }
+
 
         public Schedule GetScheduleById(int id)
         {
