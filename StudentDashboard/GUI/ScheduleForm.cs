@@ -117,7 +117,7 @@ namespace StudentDashboard.GUI
         private void LoadScheduleData()
         {
             var scheduleBLL = new ScheduleBLL();
-            var schedules = scheduleBLL.GetAllSchedules().Where(s => s.user_id == _userId).ToList();
+            var schedules = scheduleBLL.GetAllSchedulesSorted().Where(s => s.user_id == _userId).ToList();
             dgvSchedule.DataSource = schedules;
 
             // Ẩn các cột không cần thiết
@@ -141,7 +141,7 @@ namespace StudentDashboard.GUI
             dgvSchedule.Columns["academic_year"].HeaderText = "Năm học";
 
             // Định dạng hiển thị
-            dgvSchedule.Columns["date"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvSchedule.Columns["date"].DefaultCellStyle.Format = "dddd, dd/MM/yyyy";
             dgvSchedule.Columns["start_time"].DefaultCellStyle.Format = "HH:mm";
             dgvSchedule.Columns["end_time"].DefaultCellStyle.Format = "HH:mm";
         }
