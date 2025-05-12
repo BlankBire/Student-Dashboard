@@ -228,5 +228,27 @@ namespace StudentDashboard.DAL
                 academic_year = reader["academic_year"] != DBNull.Value ? Convert.ToInt32(reader["academic_year"]) : (int?)null
             };
         }
+        public List<Schedule> GetSchedulesByUserAndDate(int userId, DateTime date)
+        {
+            List<Schedule> schedules = new List<Schedule>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM schedules WHERE user_id = @user_id AND date = @date";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    cmd.Parameters.AddWithValue("@date", date.Date);
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            schedules.Add(MapReaderToSchedule(reader));
+                        }
+                    }
+                }
+            }
+            return schedules;
+        }
     }
 } 
