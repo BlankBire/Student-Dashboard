@@ -7,7 +7,7 @@ using BCrypt.Net;
 
 namespace StudentDashboard.Utils
 {
-    class HashHelper
+    public static class HashHelper
     {
         public static string HashPassword(string password)
         {

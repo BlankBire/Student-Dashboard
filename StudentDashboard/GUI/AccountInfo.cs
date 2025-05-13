@@ -61,5 +61,11 @@ namespace StudentDashboard.GUI
             // Đóng form hiện tại (AccountInfo)
             this.Close();
         }
+
+        private void btChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(_currentUser);
+            changePassword.ShowDialog();
+        }
     }
 }
