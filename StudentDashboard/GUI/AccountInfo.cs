@@ -67,5 +67,11 @@ namespace StudentDashboard.GUI
             ChangePassword changePassword = new ChangePassword(_currentUser);
             changePassword.ShowDialog();
         }
+
+        private void btChangeInfo_Click(object sender, EventArgs e)
+        {
+            ChangeInfo changeInfo = new ChangeInfo(_currentUser);
+            changeInfo.ShowDialog();
+        }
     }
 }
