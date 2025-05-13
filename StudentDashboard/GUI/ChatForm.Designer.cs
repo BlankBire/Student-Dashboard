@@ -1,0 +1,94 @@
+﻿namespace StudentDashboard.GUI
+{
+    partial class ChatForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            listBox1 = new ListBox();
+            textBox1 = new TextBox();
+            btnSend = new Button();
+            comboRecipient = new ComboBox();
+            SuspendLayout();
+            // 
+            // listBox1
+            // 
+            listBox1.Dock = DockStyle.Fill;
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(0, 0);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(800, 450);
+            listBox1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Bottom;
+            textBox1.Location = new Point(0, 423);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(800, 27);
+            textBox1.TabIndex = 1;
+            // 
+            // btnSend
+            // 
+            btnSend.Location = new Point(656, 370);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(132, 47);
+            btnSend.TabIndex = 2;
+            btnSend.Text = "Gửi";
+            btnSend.UseVisualStyleBackColor = true;
+            btnSend.Click += btnSend_Click;
+            // 
+            // comboRecipient
+            // 
+            comboRecipient.FormattingEnabled = true;
+            comboRecipient.Location = new Point(606, 0);
+            comboRecipient.Name = "comboRecipient";
+            comboRecipient.Size = new Size(194, 28);
+            comboRecipient.TabIndex = 3;
+            // 
+            // ChatForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(comboRecipient);
+            Controls.Add(btnSend);
+            Controls.Add(textBox1);
+            Controls.Add(listBox1);
+            Name = "ChatForm";
+            Text = "ChatForm";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private ListBox listBox1;
+        private TextBox textBox1;
+        private Button btnSend;
+        private ComboBox comboRecipient;
+    }
+}

@@ -34,5 +34,11 @@ namespace StudentDashboard.GUI
             var scheduleForm = new ScheduleForm(_currentUser.UserID);
             scheduleForm.ShowDialog();
         }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            ChatForm chatForm = new ChatForm(_currentUser.UserName);
+            chatForm.Show();
+        }
     }
 }
