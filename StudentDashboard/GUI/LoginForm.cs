@@ -101,5 +101,20 @@ namespace StudentDashboard.GUI
             path.CloseAllFigures();
             btLogin.Region = new Region(path);
         }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 } 
