@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             tbUserName = new TextBox();
             tbEmail = new TextBox();
@@ -38,24 +38,24 @@
             btRegister = new Button();
             btBack = new Button();
             tbConfirmPassword = new TextBox();
-            label1 = new Label();
+            lbAlreadyAccount = new Label();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            pbAvatar = new PictureBox();
+            pbUserName = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
+            pbPassword = new PictureBox();
+            pbEmail = new PictureBox();
+            pbConfirmPassword = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAvatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbUserName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbPassword).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbConfirmPassword).BeginInit();
             SuspendLayout();
             // 
             // tbUserName
@@ -63,7 +63,7 @@
             tbUserName.BorderStyle = BorderStyle.None;
             tbUserName.Font = new Font("Segoe UI", 13F);
             tbUserName.ForeColor = Color.FromArgb(0, 117, 214);
-            tbUserName.Location = new Point(303, 237);
+            tbUserName.Location = new Point(301, 237);
             tbUserName.Margin = new Padding(2);
             tbUserName.Name = "tbUserName";
             tbUserName.Size = new Size(302, 35);
@@ -98,7 +98,7 @@
             // 
             lbTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitle.ForeColor = Color.FromArgb(0, 117, 214);
-            lbTitle.Location = new Point(344, 152);
+            lbTitle.Location = new Point(340, 152);
             lbTitle.Margin = new Padding(2, 0, 2, 0);
             lbTitle.Name = "lbTitle";
             lbTitle.RightToLeft = RightToLeft.Yes;
@@ -117,7 +117,7 @@
             btRegister.FlatStyle = FlatStyle.Flat;
             btRegister.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btRegister.ForeColor = Color.WhiteSmoke;
-            btRegister.Location = new Point(271, 597);
+            btRegister.Location = new Point(273, 589);
             btRegister.Margin = new Padding(2);
             btRegister.Name = "btRegister";
             btRegister.Size = new Size(361, 44);
@@ -130,11 +130,11 @@
             // btBack
             // 
             btBack.BackColor = SystemColors.HighlightText;
-            btBack.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btBack.Location = new Point(478, 683);
+            btBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btBack.Location = new Point(445, 688);
             btBack.Margin = new Padding(2);
             btBack.Name = "btBack";
-            btBack.Size = new Size(123, 35);
+            btBack.Size = new Size(147, 42);
             btBack.TabIndex = 8;
             btBack.Text = "Quay lại";
             btBack.UseVisualStyleBackColor = false;
@@ -152,48 +152,48 @@
             tbConfirmPassword.TabIndex = 10;
             tbConfirmPassword.TextChanged += tbConfirmPassword_TextChanged;
             // 
-            // label1
+            // lbAlreadyAccount
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(238, 693);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 25);
-            label1.TabIndex = 11;
-            label1.Text = "Already have an account ?";
+            lbAlreadyAccount.AutoSize = true;
+            lbAlreadyAccount.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbAlreadyAccount.Location = new Point(287, 699);
+            lbAlreadyAccount.Name = "lbAlreadyAccount";
+            lbAlreadyAccount.Size = new Size(144, 25);
+            lbAlreadyAccount.TabIndex = 11;
+            lbAlreadyAccount.Text = "Đã có tài khoản?";
             // 
             // guna2CirclePictureBox1
             // 
             guna2CirclePictureBox1.ImageRotate = 0F;
             guna2CirclePictureBox1.Location = new Point(0, 0);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.Size = new Size(55, 60);
             guna2CirclePictureBox1.TabIndex = 12;
             guna2CirclePictureBox1.TabStop = false;
             // 
-            // pictureBox1
+            // pbAvatar
             // 
-            pictureBox1.Image = Properties.Resources.uit_logo1;
-            pictureBox1.Location = new Point(387, 52);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(158, 97);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click_1;
+            pbAvatar.Image = Properties.Resources.uit_logo1;
+            pbAvatar.Location = new Point(370, 52);
+            pbAvatar.Name = "pbAvatar";
+            pbAvatar.Size = new Size(158, 97);
+            pbAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbAvatar.TabIndex = 14;
+            pbAvatar.TabStop = false;
+            pbAvatar.Click += pictureBox1_Click_1;
             // 
-            // pictureBox2
+            // pbUserName
             // 
-            pictureBox2.Image = Properties.Resources.person;
-            pictureBox2.Location = new Point(262, 237);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(25, 25);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 15;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            pbUserName.Image = Properties.Resources.person;
+            pbUserName.Location = new Point(262, 237);
+            pbUserName.Name = "pbUserName";
+            pbUserName.Size = new Size(25, 25);
+            pbUserName.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbUserName.TabIndex = 15;
+            pbUserName.TabStop = false;
+            pbUserName.Click += pictureBox2_Click;
             // 
             // panel1
             // 
@@ -228,35 +228,35 @@
             panel4.Size = new Size(300, 1);
             panel4.TabIndex = 19;
             // 
-            // pictureBox3
+            // pbPassword
             // 
-            pictureBox3.Image = Properties.Resources.password;
-            pictureBox3.Location = new Point(262, 395);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(25, 25);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 20;
-            pictureBox3.TabStop = false;
+            pbPassword.Image = Properties.Resources.password;
+            pbPassword.Location = new Point(262, 395);
+            pbPassword.Name = "pbPassword";
+            pbPassword.Size = new Size(25, 25);
+            pbPassword.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPassword.TabIndex = 20;
+            pbPassword.TabStop = false;
             // 
-            // pictureBox4
+            // pbEmail
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(262, 315);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(25, 25);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 21;
-            pictureBox4.TabStop = false;
+            pbEmail.Image = (Image)resources.GetObject("pbEmail.Image");
+            pbEmail.Location = new Point(262, 315);
+            pbEmail.Name = "pbEmail";
+            pbEmail.Size = new Size(25, 25);
+            pbEmail.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbEmail.TabIndex = 21;
+            pbEmail.TabStop = false;
             // 
-            // pictureBox5
+            // pbConfirmPassword
             // 
-            pictureBox5.Image = Properties.Resources.password;
-            pictureBox5.Location = new Point(262, 480);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(25, 25);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 22;
-            pictureBox5.TabStop = false;
+            pbConfirmPassword.Image = Properties.Resources.password;
+            pbConfirmPassword.Location = new Point(262, 480);
+            pbConfirmPassword.Name = "pbConfirmPassword";
+            pbConfirmPassword.Size = new Size(25, 25);
+            pbConfirmPassword.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbConfirmPassword.TabIndex = 22;
+            pbConfirmPassword.TabStop = false;
             // 
             // RegisterForm
             // 
@@ -264,17 +264,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(938, 851);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
+            Controls.Add(pbConfirmPassword);
+            Controls.Add(pbEmail);
+            Controls.Add(pbPassword);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbUserName);
+            Controls.Add(pbAvatar);
             Controls.Add(guna2CirclePictureBox1);
-            Controls.Add(label1);
+            Controls.Add(lbAlreadyAccount);
             Controls.Add(tbConfirmPassword);
             Controls.Add(btBack);
             Controls.Add(btRegister);
@@ -288,11 +288,11 @@
             Text = "Đăng kí";
             Load += RegisterForm_Load;
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAvatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbUserName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbPassword).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbConfirmPassword).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,17 +305,17 @@
         private Button btRegister;
         private Button btBack;
         private TextBox tbConfirmPassword;
-        private Label label1;
+        private Label lbAlreadyAccount;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox pbAvatar;
+        private PictureBox pbUserName;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
+        private PictureBox pbPassword;
+        private PictureBox pbEmail;
+        private PictureBox pbConfirmPassword;
     }
 }

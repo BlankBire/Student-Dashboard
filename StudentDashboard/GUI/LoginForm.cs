@@ -12,15 +12,17 @@ using StudentDashboard.DAL;
 using StudentDashboard.Utils;
 using StudentDashboard.Models;
 using StudentDashboard.GUI;
+using System.Drawing.Drawing2D;
 
 namespace StudentDashboard.GUI
 {
     public partial class LoginForm : Form
-    { 
+    {
         public LoginForm()
         {
             InitializeComponent();
             tbPassword.PasswordChar = '*';
+            this.Load += LoginForm_Load;
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -85,6 +87,19 @@ namespace StudentDashboard.GUI
         private void btBack_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int radius = 20; // độ cong góc
+            Rectangle rect = btLogin.ClientRectangle;
+            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+            path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+            path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+            btLogin.Region = new Region(path);
         }
     }
 } 
