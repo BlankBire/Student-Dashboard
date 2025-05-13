@@ -41,19 +41,22 @@
             ptbLogo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ptbLogo.Enabled = false;
             ptbLogo.Image = (Image)resources.GetObject("ptbLogo.Image");
-            ptbLogo.Location = new Point(39, 3);
+            ptbLogo.Location = new Point(27, 2);
+            ptbLogo.Margin = new Padding(2, 2, 2, 2);
             ptbLogo.Name = "ptbLogo";
-            ptbLogo.Size = new Size(161, 144);
+            ptbLogo.Size = new Size(113, 118);
             ptbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             ptbLogo.TabIndex = 0;
             ptbLogo.TabStop = false;
+            ptbLogo.Click += ptbLogo_Click;
             // 
             // btHome
             // 
             btHome.FlatStyle = FlatStyle.Flat;
-            btHome.Location = new Point(1120, 49);
+            btHome.Location = new Point(784, 29);
+            btHome.Margin = new Padding(2, 2, 2, 2);
             btHome.Name = "btHome";
-            btHome.Size = new Size(196, 53);
+            btHome.Size = new Size(137, 32);
             btHome.TabIndex = 1;
             btHome.Text = "Home";
             btHome.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@
             // btSupport
             // 
             btSupport.FlatStyle = FlatStyle.Flat;
-            btSupport.Location = new Point(1367, 49);
+            btSupport.Location = new Point(957, 29);
+            btSupport.Margin = new Padding(2, 2, 2, 2);
             btSupport.Name = "btSupport";
-            btSupport.Size = new Size(196, 53);
+            btSupport.Size = new Size(137, 32);
             btSupport.TabIndex = 2;
             btSupport.Text = "Support";
             btSupport.UseVisualStyleBackColor = true;
@@ -72,9 +76,10 @@
             // btAccount
             // 
             btAccount.FlatStyle = FlatStyle.Flat;
-            btAccount.Location = new Point(1611, 49);
+            btAccount.Location = new Point(1128, 29);
+            btAccount.Margin = new Padding(2, 2, 2, 2);
             btAccount.Name = "btAccount";
-            btAccount.Size = new Size(196, 53);
+            btAccount.Size = new Size(137, 32);
             btAccount.TabIndex = 3;
             btAccount.Text = "My account";
             btAccount.UseVisualStyleBackColor = true;
@@ -82,14 +87,16 @@
             // 
             // HeaderControl
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btAccount);
             Controls.Add(btSupport);
             Controls.Add(btHome);
             Controls.Add(ptbLogo);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HeaderControl";
-            Size = new Size(1875, 150);
+            Size = new Size(1312, 122);
+            Load += HeaderControl_Load;
             ((System.ComponentModel.ISupportInitialize)ptbLogo).EndInit();
             ResumeLayout(false);
         }

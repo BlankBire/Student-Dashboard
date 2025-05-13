@@ -39,5 +39,15 @@ namespace StudentDashboard.GUI.Components
             HomePage homePage = new HomePage(_currentUser);
             homePage.ShowDialog(); // mở trang chủ mới
         }
+
+        private void HeaderControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ptbLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

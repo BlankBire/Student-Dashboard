@@ -168,5 +168,10 @@ namespace StudentDashboard.GUI
             }
             SaveMessageToDatabase(this.username, recipient, message);
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
