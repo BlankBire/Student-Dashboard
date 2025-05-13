@@ -36,6 +36,7 @@
             tbCreateAT = new TextBox();
             btLogout = new Button();
             btChangePassword = new Button();
+            btChangeInfo = new Button();
             SuspendLayout();
             // 
             // lbUserName
@@ -104,7 +105,7 @@
             // 
             // btChangePassword
             // 
-            btChangePassword.Location = new Point(775, 733);
+            btChangePassword.Location = new Point(835, 733);
             btChangePassword.Name = "btChangePassword";
             btChangePassword.Size = new Size(141, 34);
             btChangePassword.TabIndex = 7;
@@ -112,11 +113,22 @@
             btChangePassword.UseVisualStyleBackColor = true;
             btChangePassword.Click += btChangePassword_Click;
             // 
+            // btChangeInfo
+            // 
+            btChangeInfo.Location = new Point(419, 733);
+            btChangeInfo.Name = "btChangeInfo";
+            btChangeInfo.Size = new Size(196, 34);
+            btChangeInfo.TabIndex = 8;
+            btChangeInfo.Text = "Đổi thông tin cá nhân";
+            btChangeInfo.UseVisualStyleBackColor = true;
+            btChangeInfo.Click += btChangeInfo_Click;
+            // 
             // AccountInfo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1895, 1146);
+            Controls.Add(btChangeInfo);
             Controls.Add(btChangePassword);
             Controls.Add(btLogout);
             Controls.Add(tbCreateAT);
@@ -142,5 +154,6 @@
         private TextBox tbCreateAT;
         private Button btLogout;
         private Button btChangePassword;
+        private Button btChangeInfo;
     }
 }
