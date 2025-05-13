@@ -47,5 +47,32 @@ namespace StudentDashboard.DAL
             }
             return null;
         }
+        public bool UpdatePassword(int userId, string newPassword)
+        {
+            MySqlConnection connection = DatabaseHelper.GetConnection();
+            if (connection != null)
+            {
+                try
+                {
+                    string query = "UPDATE users SET user_password = @password WHERE user_id = @userId";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@password", newPassword);
+                    command.Parameters.AddWithValue("@userId", userId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi cập nhật mật khẩu: " + ex.Message);
+                }
+                finally
+                {
+                    DatabaseHelper.CloseConnection(connection);
+                }
+            }
+            return false;
+        }
+
     }
 } 

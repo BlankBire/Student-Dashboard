@@ -35,6 +35,7 @@
             lbCreateAT = new Label();
             tbCreateAT = new TextBox();
             btLogout = new Button();
+            btChangePassword = new Button();
             SuspendLayout();
             // 
             // lbUserName
@@ -101,11 +102,22 @@
             btLogout.UseVisualStyleBackColor = true;
             btLogout.Click += btLogout_Click;
             // 
+            // btChangePassword
+            // 
+            btChangePassword.Location = new Point(775, 733);
+            btChangePassword.Name = "btChangePassword";
+            btChangePassword.Size = new Size(141, 34);
+            btChangePassword.TabIndex = 7;
+            btChangePassword.Text = "Đổi mật khẩu";
+            btChangePassword.UseVisualStyleBackColor = true;
+            btChangePassword.Click += btChangePassword_Click;
+            // 
             // AccountInfo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1895, 1146);
+            Controls.Add(btChangePassword);
             Controls.Add(btLogout);
             Controls.Add(tbCreateAT);
             Controls.Add(lbCreateAT);
@@ -129,5 +141,6 @@
         private Label lbCreateAT;
         private TextBox tbCreateAT;
         private Button btLogout;
+        private Button btChangePassword;
     }
 }
