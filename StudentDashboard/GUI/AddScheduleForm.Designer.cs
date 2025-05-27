@@ -30,160 +30,180 @@ namespace StudentDashboard.GUI
 
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-
-            lblSubject = new System.Windows.Forms.Label();
-            cbSubject = new System.Windows.Forms.ComboBox();
-            lblTeacher = new System.Windows.Forms.Label();
-            cbTeacher = new System.Windows.Forms.ComboBox();
-            lblRoom = new System.Windows.Forms.Label();
-            cbRoom = new System.Windows.Forms.ComboBox();
-            lblClass = new System.Windows.Forms.Label();
-            cbClass = new System.Windows.Forms.ComboBox();
-            lblDayOfWeek = new System.Windows.Forms.Label();
-            cbDayOfWeek = new System.Windows.Forms.ComboBox();
-            lblStartPeriod = new System.Windows.Forms.Label();
-            cbStartPeriod = new System.Windows.Forms.ComboBox();
-            lblEndPeriod = new System.Windows.Forms.Label();
-            cbEndPeriod = new System.Windows.Forms.ComboBox();
-            btnSave = new System.Windows.Forms.Button();
-
+            lblSubject = new Label();
+            cbSubject = new ComboBox();
+            lblTeacher = new Label();
+            cbTeacher = new ComboBox();
+            lblRoom = new Label();
+            cbRoom = new ComboBox();
+            lblClass = new Label();
+            cbClass = new ComboBox();
+            lblDayOfWeek = new Label();
+            cbDayOfWeek = new ComboBox();
+            lblStartPeriod = new Label();
+            cbStartPeriod = new ComboBox();
+            lblEndPeriod = new Label();
+            cbEndPeriod = new ComboBox();
+            btnSave = new Button();
+            SuspendLayout();
             // 
             // lblSubject
             // 
+            lblSubject.AutoSize = true;
+            lblSubject.Location = new Point(30, 39);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(83, 25);
+            lblSubject.TabIndex = 0;
             lblSubject.Text = "Môn học";
-            lblSubject.Location = new System.Drawing.Point(30, 30);
-            lblSubject.Size = new System.Drawing.Size(70, 23);
             // 
             // cbSubject
             // 
             cbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSubject.Location = new System.Drawing.Point(120, 30);
-            cbSubject.Size = new System.Drawing.Size(200, 23);
-
+            cbSubject.Location = new Point(144, 36);
+            cbSubject.Name = "cbSubject";
+            cbSubject.Size = new Size(200, 33);
+            cbSubject.TabIndex = 1;
             // 
             // lblTeacher
             // 
+            lblTeacher.AutoSize = true;
+            lblTeacher.Location = new Point(30, 78);
+            lblTeacher.Name = "lblTeacher";
+            lblTeacher.Size = new Size(85, 25);
+            lblTeacher.TabIndex = 2;
             lblTeacher.Text = "Giáo viên";
-            lblTeacher.Location = new System.Drawing.Point(30, 70);
-            lblTeacher.Size = new System.Drawing.Size(70, 23);
             // 
             // cbTeacher
             // 
             cbTeacher.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTeacher.Location = new System.Drawing.Point(120, 70);
-            cbTeacher.Size = new System.Drawing.Size(200, 23);
-
+            cbTeacher.Location = new Point(144, 75);
+            cbTeacher.Name = "cbTeacher";
+            cbTeacher.Size = new Size(200, 33);
+            cbTeacher.TabIndex = 3;
             // 
             // lblRoom
             // 
+            lblRoom.AutoSize = true;
+            lblRoom.Location = new Point(30, 117);
+            lblRoom.Name = "lblRoom";
+            lblRoom.Size = new Size(64, 25);
+            lblRoom.TabIndex = 4;
             lblRoom.Text = "Phòng";
-            lblRoom.Location = new System.Drawing.Point(30, 110);
-            lblRoom.Size = new System.Drawing.Size(70, 23);
             // 
             // cbRoom
             // 
             cbRoom.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRoom.Location = new System.Drawing.Point(120, 110);
-            cbRoom.Size = new System.Drawing.Size(200, 23);
-
+            cbRoom.Location = new Point(144, 114);
+            cbRoom.Name = "cbRoom";
+            cbRoom.Size = new Size(200, 33);
+            cbRoom.TabIndex = 5;
             // 
             // lblClass
             // 
+            lblClass.AutoSize = true;
+            lblClass.Location = new Point(30, 156);
+            lblClass.Name = "lblClass";
+            lblClass.Size = new Size(42, 25);
+            lblClass.TabIndex = 6;
             lblClass.Text = "Lớp";
-            lblClass.Location = new System.Drawing.Point(30, 150);
-            lblClass.Size = new System.Drawing.Size(70, 23);
             // 
             // cbClass
             // 
             cbClass.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbClass.Location = new System.Drawing.Point(120, 150);
-            cbClass.Size = new System.Drawing.Size(200, 23);
-
+            cbClass.Location = new Point(144, 153);
+            cbClass.Name = "cbClass";
+            cbClass.Size = new Size(200, 33);
+            cbClass.TabIndex = 7;
             // 
             // lblDayOfWeek
             // 
+            lblDayOfWeek.AutoSize = true;
+            lblDayOfWeek.Location = new Point(30, 195);
+            lblDayOfWeek.Name = "lblDayOfWeek";
+            lblDayOfWeek.Size = new Size(42, 25);
+            lblDayOfWeek.TabIndex = 8;
             lblDayOfWeek.Text = "Thứ";
-            lblDayOfWeek.Location = new System.Drawing.Point(30, 190);
-            lblDayOfWeek.Size = new System.Drawing.Size(70, 23);
             // 
             // cbDayOfWeek
             // 
             cbDayOfWeek.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDayOfWeek.Items.AddRange(new object[] {
-                "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"
-            });
-            cbDayOfWeek.Location = new System.Drawing.Point(120, 190);
-            cbDayOfWeek.Size = new System.Drawing.Size(200, 23);
-
+            cbDayOfWeek.Items.AddRange(new object[] { "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" });
+            cbDayOfWeek.Location = new Point(144, 192);
+            cbDayOfWeek.Name = "cbDayOfWeek";
+            cbDayOfWeek.Size = new Size(200, 33);
+            cbDayOfWeek.TabIndex = 9;
             // 
             // lblStartPeriod
             // 
+            lblStartPeriod.AutoSize = true;
+            lblStartPeriod.Location = new Point(30, 234);
+            lblStartPeriod.Name = "lblStartPeriod";
+            lblStartPeriod.Size = new Size(106, 25);
+            lblStartPeriod.TabIndex = 10;
             lblStartPeriod.Text = "Tiết bắt đầu";
-            lblStartPeriod.Location = new System.Drawing.Point(30, 230);
-            lblStartPeriod.Size = new System.Drawing.Size(70, 23);
             // 
             // cbStartPeriod
             // 
             cbStartPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbStartPeriod.Items.AddRange(new object[] {
-                "Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5", "Tiết 6", "Tiết 7", "Tiết 8", "Tiết 9", "Tiết 10"
-            });
-            cbStartPeriod.Location = new System.Drawing.Point(120, 230);
-            cbStartPeriod.Size = new System.Drawing.Size(200, 23);
-
+            cbStartPeriod.Items.AddRange(new object[] { "Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5", "Tiết 6", "Tiết 7", "Tiết 8", "Tiết 9", "Tiết 10" });
+            cbStartPeriod.Location = new Point(144, 231);
+            cbStartPeriod.Name = "cbStartPeriod";
+            cbStartPeriod.Size = new Size(200, 33);
+            cbStartPeriod.TabIndex = 11;
             // 
             // lblEndPeriod
             // 
+            lblEndPeriod.AutoSize = true;
+            lblEndPeriod.Location = new Point(30, 273);
+            lblEndPeriod.Name = "lblEndPeriod";
+            lblEndPeriod.Size = new Size(108, 25);
+            lblEndPeriod.TabIndex = 12;
             lblEndPeriod.Text = "Tiết kết thúc";
-            lblEndPeriod.Location = new System.Drawing.Point(30, 270);
-            lblEndPeriod.Size = new System.Drawing.Size(70, 23);
             // 
             // cbEndPeriod
             // 
             cbEndPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEndPeriod.Items.AddRange(new object[] {
-                "Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5", "Tiết 6", "Tiết 7", "Tiết 8", "Tiết 9", "Tiết 10"
-            });
-            cbEndPeriod.Location = new System.Drawing.Point(120, 270);
-            cbEndPeriod.Size = new System.Drawing.Size(200, 23);
-
+            cbEndPeriod.Items.AddRange(new object[] { "Tiết 1", "Tiết 2", "Tiết 3", "Tiết 4", "Tiết 5", "Tiết 6", "Tiết 7", "Tiết 8", "Tiết 9", "Tiết 10" });
+            cbEndPeriod.Location = new Point(144, 270);
+            cbEndPeriod.Name = "cbEndPeriod";
+            cbEndPeriod.Size = new Size(200, 33);
+            cbEndPeriod.TabIndex = 13;
             // 
             // btnSave
             // 
+            btnSave.Location = new Point(144, 339);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(100, 35);
+            btnSave.TabIndex = 14;
             btnSave.Text = "Lưu";
-            btnSave.Location = new System.Drawing.Point(120, 320);
-            btnSave.Size = new System.Drawing.Size(100, 35);
-            btnSave.Click += new System.EventHandler(this.btnSave_Click);
-
+            btnSave.Click += btnSave_Click;
             // 
-            // Add controls to the form
+            // AddScheduleForm
             // 
-            this.Controls.Add(lblSubject);
-            this.Controls.Add(cbSubject);
-            this.Controls.Add(lblTeacher);
-            this.Controls.Add(cbTeacher);
-            this.Controls.Add(lblRoom);
-            this.Controls.Add(cbRoom);
-            this.Controls.Add(lblClass);
-            this.Controls.Add(cbClass);
-            this.Controls.Add(lblDayOfWeek);
-            this.Controls.Add(cbDayOfWeek);
-            this.Controls.Add(lblStartPeriod);
-            this.Controls.Add(cbStartPeriod);
-            this.Controls.Add(lblEndPeriod);
-            this.Controls.Add(cbEndPeriod);
-            this.Controls.Add(btnSave);
-
-            // 
-            // Form settings
-            // 
-            this.Text = "Đăng ký môn học";
-            this.ClientSize = new System.Drawing.Size(370, 400);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            ClientSize = new Size(412, 400);
+            Controls.Add(lblSubject);
+            Controls.Add(cbSubject);
+            Controls.Add(lblTeacher);
+            Controls.Add(cbTeacher);
+            Controls.Add(lblRoom);
+            Controls.Add(cbRoom);
+            Controls.Add(lblClass);
+            Controls.Add(cbClass);
+            Controls.Add(lblDayOfWeek);
+            Controls.Add(cbDayOfWeek);
+            Controls.Add(lblStartPeriod);
+            Controls.Add(cbStartPeriod);
+            Controls.Add(lblEndPeriod);
+            Controls.Add(cbEndPeriod);
+            Controls.Add(btnSave);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "AddScheduleForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Đăng ký môn học";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
