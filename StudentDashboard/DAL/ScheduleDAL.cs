@@ -275,5 +275,24 @@ namespace StudentDashboard.DAL
             }
             return schedules;
         }
+        public List<Schedule> GetSchedulesByUserAndDay(int userId, int dayOfWeek)
+        {
+            var result = new List<Schedule>();
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                var cmd = new MySqlCommand("SELECT * FROM schedules WHERE user_id = @userId AND day_of_week = @dayOfWeek", conn);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@dayOfWeek", dayOfWeek);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(MapReaderToSchedule(reader));
+                    }
+                }
+            }
+            return result;
+        }
     }
 } 

@@ -11,13 +11,15 @@ namespace StudentDashboard.GUI
         private Button btnEdit;
         private Button btnDelete;
         private Button btnAdd;
-        private DataGridView dgvSchedule;
+        private ScheduleWeekView weekView;
         private int _userId;
+        private int? _selectedScheduleId = null;
 
         public ScheduleForm(int userId)
         {
             _userId = userId;
             InitializeComponent();
+            weekView.ScheduleSelected += OnScheduleSelected;
             LoadScheduleData();
         }
 
@@ -27,20 +29,11 @@ namespace StudentDashboard.GUI
             this.Size = new System.Drawing.Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Initialize DataGridView
-            dgvSchedule = new DataGridView
+            weekView = new ScheduleWeekView
             {
-                Dock = DockStyle.Fill,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                MultiSelect = false,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                Dock = DockStyle.Fill
             };
-            dgvSchedule.CellFormatting += DgvSchedule_CellFormatting;
 
-            // Initialize Buttons
             btnAdd = new Button
             {
                 Text = "Thêm mới",
@@ -65,11 +58,14 @@ namespace StudentDashboard.GUI
             };
             btnEdit.Click += BtnRefresh_Click;
 
-            // Add controls to form
-            this.Controls.Add(dgvSchedule);
+            this.Controls.Add(weekView);
             this.Controls.Add(btnAdd);
             this.Controls.Add(btnDelete);
             this.Controls.Add(btnEdit);
+        }
+        private void OnScheduleSelected(int scheduleId)
+        {
+            _selectedScheduleId = scheduleId;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -78,28 +74,34 @@ namespace StudentDashboard.GUI
             if (addForm.ShowDialog() == DialogResult.OK)
             {
                 var scheduleBLL = new ScheduleBLL();
-                scheduleBLL.AddSchedule(addForm.NewSchedule);
-                LoadScheduleData();
+                try
+                {
+                    scheduleBLL.AddSchedule(addForm.NewSchedule);
+                    LoadScheduleData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvSchedule.SelectedRows.Count > 0)
+            if (_selectedScheduleId.HasValue)
             {
-                var selectedRow = dgvSchedule.SelectedRows[0];
-                var schedule = (Schedule)selectedRow.DataBoundItem;
                 var confirm = MessageBox.Show("Bạn có chắc muốn xóa môn này khỏi thời khóa biểu?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
                     var scheduleBLL = new ScheduleBLL();
-                    scheduleBLL.DeleteSchedule(schedule.schedule_id);
+                    scheduleBLL.DeleteSchedule(_selectedScheduleId.Value);
+                    _selectedScheduleId = null;
                     LoadScheduleData();
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa!");
+                MessageBox.Show("Vui lòng chọn môn học trên lưới để xóa!");
             }
         }
 
@@ -110,6 +112,7 @@ namespace StudentDashboard.GUI
             {
                 var scheduleBLL = new ScheduleBLL();
                 scheduleBLL.DeleteAllSchedulesByUser(_userId);
+                _selectedScheduleId = null;
                 LoadScheduleData();
             }
         }
@@ -118,49 +121,7 @@ namespace StudentDashboard.GUI
         {
             var scheduleBLL = new ScheduleBLL();
             var schedules = scheduleBLL.GetAllSchedulesSorted().Where(s => s.user_id == _userId).ToList();
-            dgvSchedule.DataSource = schedules;
-
-            // Ẩn các cột không cần thiết
-            dgvSchedule.Columns["schedule_id"].Visible = false;
-            dgvSchedule.Columns["user_id"].Visible = false;
-            dgvSchedule.Columns["title"].Visible = false;
-            dgvSchedule.Columns["description"].Visible = false;
-            dgvSchedule.Columns["time"].Visible = false;
-            dgvSchedule.Columns["create_at"].Visible = false;
-            dgvSchedule.Columns["day_of_week"].Visible = false;
-
-            // Đổi tên hiển thị các cột
-            dgvSchedule.Columns["date"].HeaderText = "Ngày";
-            dgvSchedule.Columns["subject_name"].HeaderText = "Môn học";
-            dgvSchedule.Columns["teacher_name"].HeaderText = "Giáo viên";
-            dgvSchedule.Columns["room"].HeaderText = "Phòng học";
-            dgvSchedule.Columns["start_time"].HeaderText = "Giờ bắt đầu";
-            dgvSchedule.Columns["end_time"].HeaderText = "Giờ kết thúc";
-            dgvSchedule.Columns["class_name"].HeaderText = "Lớp";
-            dgvSchedule.Columns["semester"].HeaderText = "Học kỳ";
-            dgvSchedule.Columns["academic_year"].HeaderText = "Năm học";
-
-            // Định dạng hiển thị
-            dgvSchedule.Columns["date"].DefaultCellStyle.Format = "dddd, dd/MM/yyyy";
-            dgvSchedule.Columns["start_time"].DefaultCellStyle.Format = "HH:mm";
-            dgvSchedule.Columns["end_time"].DefaultCellStyle.Format = "HH:mm";
-        }
-
-        private void DgvSchedule_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvSchedule.Columns[e.ColumnIndex].Name == "start_time" || dgvSchedule.Columns[e.ColumnIndex].Name == "end_time")
-            {
-                if (e.Value != null && e.Value is TimeSpan ts)
-                {
-                    e.Value = ts.ToString(@"hh\:mm");
-                    e.FormattingApplied = true;
-                }
-                else
-                {
-                    e.Value = "";
-                    e.FormattingApplied = true;
-                }
-            }
+            weekView.LoadSchedules(schedules);
         }
     }
 } 
