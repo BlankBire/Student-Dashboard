@@ -108,7 +108,7 @@
             btBack.Name = "btBack";
             btBack.Size = new Size(110, 28);
             btBack.TabIndex = 6;
-            btBack.Text = "Đăng ký ";
+            btBack.Text = "Quay lại";
             btBack.UseVisualStyleBackColor = true;
             btBack.Click += btBack_Click;
             // 

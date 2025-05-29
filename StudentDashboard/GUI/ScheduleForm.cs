@@ -101,7 +101,7 @@ namespace StudentDashboard.GUI
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn môn học trên lưới để xóa!");
+                MessageBox.Show("Vui lòng chọn môn học để xóa!");
             }
         }
 

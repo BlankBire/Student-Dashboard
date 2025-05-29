@@ -15,6 +15,63 @@ namespace StudentDashboard.GUI
             InitializeComponent();
             _userId = userId;
             LoadComboBoxData();
+            cbSubject.SelectedIndexChanged += cbSubject_SelectedIndexChanged;
+        }
+
+        private void cbSubject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedSubject = cbSubject.SelectedItem as Subject;
+            if (selectedSubject == null) return;
+
+            string prefix = null;
+            switch (selectedSubject.subject_name.Trim().ToLower())
+            {
+                case "nhập môn lập trình":
+                    prefix = "IT001";
+                    break;
+                case "lập trình hướng đối tượng":
+                    prefix = "IT002";
+                    break;
+                case "cấu trúc dữ liệu và giải thuật":
+                    prefix = "IT003";
+                    break;
+                case "giải tích":
+                    prefix = "MA006";
+                    break;
+                case "đại số tuyến tính":
+                    prefix = "MA003";
+                    break;
+                case "cấu trúc rời rạc":
+                    prefix = "MA004";
+                    break;
+                case "xác suất thống kê":
+                    prefix = "MA005";
+                    break;
+                default:
+                    prefix = null;
+                    break;
+            }
+
+            var classDAL = new ClassDAL();
+            var allClasses = classDAL.GetAllClasses();
+            // Lấy danh sách các lớp đã có trong thời khóa biểu của user
+            var scheduleDAL = new ScheduleDAL();
+            var userSchedules = scheduleDAL.GetSchedulesByUser(_userId);
+            var usedClassNames = new HashSet<string>();
+            foreach (var s in userSchedules)
+            {
+                if (!string.IsNullOrEmpty(s.class_name))
+                    usedClassNames.Add(s.class_name);
+            }
+
+            // Lọc lớp theo prefix và loại bỏ các lớp đã dùng
+            var filteredClasses = prefix != null
+                ? allClasses.FindAll(c => c.class_name.StartsWith(prefix) && !usedClassNames.Contains(c.class_name))
+                : allClasses.FindAll(c => !usedClassNames.Contains(c.class_name));
+
+            cbClass.DataSource = filteredClasses;
+            cbClass.DisplayMember = "class_name";
+            cbClass.ValueMember = "class_id";
         }
 
         private void LoadComboBoxData()
@@ -42,6 +99,9 @@ namespace StudentDashboard.GUI
             cbClass.DataSource = classDAL.GetAllClasses();
             cbClass.DisplayMember = "class_name";
             cbClass.ValueMember = "class_id";
+
+            // Gọi sự kiện lọc lớp theo môn học đầu tiên
+            cbSubject_SelectedIndexChanged(cbSubject, EventArgs.Empty);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

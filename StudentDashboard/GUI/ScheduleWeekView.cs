@@ -96,7 +96,7 @@ namespace StudentDashboard.GUI
 
                 var lbl = new Label
                 {
-                    Text = $"{s.subject_name}\n{s.start_time:hh\\:mm}-{s.end_time:hh\\:mm}\n{s.room}",
+                    Text = $"{s.class_name}\n{s.subject_name}\n{s.room}\n{s.start_time:hh\\:mm} - {s.end_time:hh\\:mm}",
                     Dock = DockStyle.Fill,
                     TextAlign = ContentAlignment.MiddleCenter,
                     BackColor = Color.LightBlue,

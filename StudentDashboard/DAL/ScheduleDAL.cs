@@ -294,5 +294,26 @@ namespace StudentDashboard.DAL
             }
             return result;
         }
+        public List<Schedule> GetSchedulesByUser(int userId)
+        {
+            List<Schedule> schedules = new List<Schedule>();
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM schedules WHERE user_id = @user_id";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            schedules.Add(MapReaderToSchedule(reader));
+                        }
+                    }
+                }
+            }
+            return schedules;
+        }
     }
 } 
