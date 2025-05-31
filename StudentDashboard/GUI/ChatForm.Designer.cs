@@ -28,74 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
+            panelChat = new Panel();
             textBox1 = new TextBox();
             btnSend = new Button();
-            comboRecipient = new ComboBox();
+            listUsers = new ListBox();
+            panelInput = new Panel();
             SuspendLayout();
-            // 
-            // listBox1
-            // 
-            listBox1.Dock = DockStyle.Fill;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(0, 0);
-            listBox1.Margin = new Padding(3, 2, 3, 2);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(700, 338);
-            listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
+
+            // listUsers
+            listUsers.Dock = DockStyle.Left;
+            listUsers.Width = 200;
+            listUsers.SelectedIndexChanged += listUsers_SelectedIndexChanged;
+
+            // panelChat
+            panelChat.Dock = DockStyle.None;
+            panelChat.AutoScroll = true;
+            panelChat.Padding = new Padding(10, 10, 10, 10);
+            panelChat.BackColor = Color.LightYellow;
+            panelChat.Location = new Point(listUsers.Width, 0);
+            panelChat.Width = 500;
+            panelChat.Height = this.ClientSize.Height - panelInput.Height;
+            panelChat.HorizontalScroll.Enabled = false;
+            panelChat.HorizontalScroll.Visible = false;
+
+            // panelInput (panel chứa thanh nhập và nút gửi)
+            panelInput.Dock = DockStyle.Bottom;
+            panelInput.Height = 40;
+            panelInput.Padding = new Padding(10, 5, 10, 5);
+            panelInput.Width = this.ClientSize.Width;
+            panelInput.Controls.Add(textBox1);
+            panelInput.Controls.Add(btnSend);
+
             // textBox1
-            // 
-            textBox1.Dock = DockStyle.Bottom;
-            textBox1.Location = new Point(0, 315);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(700, 23);
-            textBox1.TabIndex = 1;
-            // 
+            textBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox1.Location = new Point(0, 5);
+            textBox1.Width = 800;
+            textBox1.Height = 30;
+
             // btnSend
-            // 
-            btnSend.Location = new Point(574, 278);
-            btnSend.Margin = new Padding(3, 2, 3, 2);
-            btnSend.Name = "btnSend";
-            btnSend.Size = new Size(116, 35);
-            btnSend.TabIndex = 2;
             btnSend.Text = "Gửi";
-            btnSend.UseVisualStyleBackColor = true;
+            btnSend.Width = 80;
+            btnSend.Height = 30;
+            btnSend.Location = new Point(textBox1.Right + 10, 5);
+            btnSend.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             btnSend.Click += btnSend_Click;
-            // 
-            // comboRecipient
-            // 
-            comboRecipient.FormattingEnabled = true;
-            comboRecipient.Location = new Point(530, 0);
-            comboRecipient.Margin = new Padding(3, 2, 3, 2);
-            comboRecipient.Name = "comboRecipient";
-            comboRecipient.Size = new Size(170, 23);
-            comboRecipient.TabIndex = 3;
-            // 
+
             // ChatForm
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
-            Controls.Add(comboRecipient);
-            Controls.Add(btnSend);
-            Controls.Add(textBox1);
-            Controls.Add(listBox1);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "ChatForm";
-            Text = "ChatForm";
+            this.Size = new Size(1000, 600);
+            this.Text = "Chat";
+            this.Resize += ChatForm_Resize;
+            
+            Controls.Add(panelChat);    // Add panelChat sau nữa
+            Controls.Add(panelInput);
+            Controls.Add(listUsers);    // Add listUsers cuối cùng (Dock Left)
+
             ResumeLayout(false);
             PerformLayout();
+        }
+        private void ChatForm_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo panelInput đã cập nhật vị trí và kích thước
+            // panelInput.Top = this.ClientSize.Height - panelInput.Height;
+            // panelInput.Left = 0;
+            // panelInput.Width = this.ClientSize.Width;
+
+            // listUsers luôn bên trái
+            // listUsers.Left = 0;
+            // listUsers.Top = 0;
+            // listUsers.Height = this.ClientSize.Height;
+
+            // panelChat fill vùng còn lại
+            panelChat.Left = listUsers.Width;
+            panelChat.Top = 0;
+            panelChat.Width = this.ClientSize.Width - listUsers.Width;
+            panelChat.Height = this.ClientSize.Height - panelInput.Height;
         }
 
         #endregion
 
-        private ListBox listBox1;
+        private Panel panelChat;
         private TextBox textBox1;
         private Button btnSend;
         private ComboBox comboRecipient;
+        private ListBox listUsers;
+        private Panel panelInput;
     }
 }
