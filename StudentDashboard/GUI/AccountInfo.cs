@@ -21,9 +21,9 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = currentUser;
-            HeaderControl header = new HeaderControl(_currentUser);
-            header.Dock = DockStyle.Top;
-            this.Controls.Add(header);
+            //HeaderControl header = new HeaderControl(_currentUser);
+            //header.Dock = DockStyle.Top;
+            //this.Controls.Add(header);
         }
 
         private void AccountInfo_Load(object sender, EventArgs e)
@@ -72,6 +72,13 @@ namespace StudentDashboard.GUI
         {
             ChangeInfo changeInfo = new ChangeInfo(_currentUser);
             changeInfo.ShowDialog();
+        }
+
+        private void btHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomePage homePage = new HomePage(_currentUser);
+            homePage.ShowDialog();
         }
     }
 }

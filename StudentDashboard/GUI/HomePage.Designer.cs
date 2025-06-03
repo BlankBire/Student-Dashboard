@@ -132,7 +132,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.uit_logo1;
-            pictureBox1.Location = new Point(-3, -73);
+            pictureBox1.Location = new Point(-5, -73);
             pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(244, 272);
