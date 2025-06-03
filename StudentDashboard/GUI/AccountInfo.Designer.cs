@@ -34,36 +34,34 @@
             btLogout = new Button();
             btChangePassword = new Button();
             btChangeInfo = new Button();
+            btHome = new Button();
             SuspendLayout();
             // 
             // tbUserName
             // 
             tbUserName.Font = new Font("Segoe UI", 18F);
             tbUserName.ForeColor = Color.Aqua;
-            tbUserName.Location = new Point(164, 247);
-            tbUserName.Margin = new Padding(2, 2, 2, 2);
+            tbUserName.Location = new Point(412, 178);
             tbUserName.Name = "tbUserName";
-            tbUserName.Size = new Size(445, 39);
+            tbUserName.Size = new Size(634, 55);
             tbUserName.TabIndex = 1;
             // 
             // tbEmail
             // 
             tbEmail.Font = new Font("Segoe UI", 18F);
             tbEmail.ForeColor = Color.Cyan;
-            tbEmail.Location = new Point(164, 335);
-            tbEmail.Margin = new Padding(2, 2, 2, 2);
+            tbEmail.Location = new Point(412, 278);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(445, 39);
+            tbEmail.Size = new Size(634, 55);
             tbEmail.TabIndex = 3;
             // 
             // tbCreateAT
             // 
             tbCreateAT.Font = new Font("Segoe UI", 18F);
             tbCreateAT.ForeColor = Color.Cyan;
-            tbCreateAT.Location = new Point(164, 443);
-            tbCreateAT.Margin = new Padding(2, 2, 2, 2);
+            tbCreateAT.Location = new Point(412, 362);
             tbCreateAT.Name = "tbCreateAT";
-            tbCreateAT.Size = new Size(445, 39);
+            tbCreateAT.Size = new Size(634, 55);
             tbCreateAT.TabIndex = 5;
             // 
             // btLogout
@@ -71,10 +69,9 @@
             btLogout.BackColor = SystemColors.ButtonFace;
             btLogout.Font = new Font("Segoe UI", 15F);
             btLogout.ForeColor = Color.FromArgb(0, 188, 212);
-            btLogout.Location = new Point(627, 520);
-            btLogout.Margin = new Padding(2, 2, 2, 2);
+            btLogout.Location = new Point(871, 524);
             btLogout.Name = "btLogout";
-            btLogout.Size = new Size(134, 46);
+            btLogout.Size = new Size(191, 77);
             btLogout.TabIndex = 6;
             btLogout.Text = "Đăng xuất";
             btLogout.UseVisualStyleBackColor = false;
@@ -86,10 +83,9 @@
             btChangePassword.FlatAppearance.BorderSize = 0;
             btChangePassword.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btChangePassword.ForeColor = Color.FromArgb(13, 71, 161);
-            btChangePassword.Location = new Point(429, 520);
-            btChangePassword.Margin = new Padding(2, 2, 2, 2);
+            btChangePassword.Location = new Point(534, 524);
             btChangePassword.Name = "btChangePassword";
-            btChangePassword.Size = new Size(164, 46);
+            btChangePassword.Size = new Size(234, 77);
             btChangePassword.TabIndex = 7;
             btChangePassword.Text = "Đổi mật khẩu";
             btChangePassword.UseVisualStyleBackColor = false;
@@ -102,21 +98,37 @@
             btChangeInfo.FlatStyle = FlatStyle.Popup;
             btChangeInfo.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btChangeInfo.ForeColor = Color.White;
-            btChangeInfo.Location = new Point(164, 520);
-            btChangeInfo.Margin = new Padding(2, 2, 2, 2);
+            btChangeInfo.Location = new Point(121, 524);
             btChangeInfo.Name = "btChangeInfo";
-            btChangeInfo.Size = new Size(235, 46);
+            btChangeInfo.Size = new Size(336, 77);
             btChangeInfo.TabIndex = 8;
             btChangeInfo.Text = "Đổi thông tin cá nhân";
             btChangeInfo.UseVisualStyleBackColor = false;
             btChangeInfo.Click += btChangeInfo_Click;
             // 
+            // btHome
+            // 
+            btHome.AutoSize = true;
+            btHome.FlatAppearance.BorderSize = 0;
+            btHome.FlatStyle = FlatStyle.Flat;
+            btHome.Font = new Font("Segoe UI", 12F);
+            btHome.ForeColor = SystemColors.Desktop;
+            btHome.Image = Properties.Resources.icons8_home_24;
+            btHome.Location = new Point(1093, 14);
+            btHome.Margin = new Padding(4, 5, 4, 5);
+            btHome.Name = "btHome";
+            btHome.Size = new Size(118, 70);
+            btHome.TabIndex = 9;
+            btHome.UseVisualStyleBackColor = true;
+            btHome.Click += btHome_Click;
+            // 
             // AccountInfo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Your_paragraph_text;
-            ClientSize = new Size(1326, 637);
+            ClientSize = new Size(1224, 659);
+            Controls.Add(btHome);
             Controls.Add(btChangeInfo);
             Controls.Add(btChangePassword);
             Controls.Add(btLogout);
@@ -124,7 +136,6 @@
             Controls.Add(tbEmail);
             Controls.Add(tbUserName);
             ForeColor = Color.Azure;
-            Margin = new Padding(2, 2, 2, 2);
             Name = "AccountInfo";
             Text = "Thông tin tài khoản";
             Load += AccountInfo_Load;
@@ -139,5 +150,6 @@
         private Button btLogout;
         private Button btChangePassword;
         private Button btChangeInfo;
+        private Button btHome;
     }
 }
