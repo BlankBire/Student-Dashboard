@@ -34,6 +34,7 @@ namespace StudentDashboard.GUI
                 ColumnCount = 8, 
                 RowCount = 11,   
                 CellBorderStyle = TableLayoutPanelCellBorderStyle.Single,
+                BackColor = Color.Transparent
             };
             table.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
             for (int i = 1; i < 11; i++)
@@ -41,30 +42,30 @@ namespace StudentDashboard.GUI
             for (int i = 0; i < 8; i++)
                 table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5f));
 
-            // Thêm tiêu đề các cột
+            // Add day headers
             for (int i = 0; i < 8; i++)
             {
                 var lbl = new Label
                 {
-                    Text = days[i],
+                    Text = i == 0 ? "" : days[i],
                     Dock = DockStyle.Fill,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    BackColor = Color.LightGray,
-                    Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold)
+                    BackColor = Color.Transparent,
+                    Font = new Font("Segoe UI", 9F, FontStyle.Bold)
                 };
                 table.Controls.Add(lbl, i, 0);
             }
 
-            // Thêm chú thích tiết vào cột đầu tiên
-            for (int i = 0; i < periods.Length; i++)
+            // Add period headers
+            for (int i = 0; i < 10; i++)
             {
                 var lbl = new Label
                 {
                     Text = $"{periods[i].Item1}\n{periods[i].Item2}",
                     Dock = DockStyle.Fill,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    BackColor = Color.WhiteSmoke,
-                    Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Regular)
+                    BackColor = Color.Transparent,
+                    Font = new Font("Segoe UI", 8F, FontStyle.Bold)
                 };
                 table.Controls.Add(lbl, 0, i + 1);
             }
@@ -108,7 +109,7 @@ namespace StudentDashboard.GUI
                 {
                     if (_selectedLabel != null)
                         _selectedLabel.BackColor = Color.LightBlue;
-                    lbl.BackColor = Color.DodgerBlue;
+                    lbl.BackColor = Color.Pink;
                     _selectedLabel = lbl;
                     ScheduleSelected?.Invoke(s.schedule_id);
                 };
