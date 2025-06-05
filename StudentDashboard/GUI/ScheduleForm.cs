@@ -19,6 +19,7 @@ namespace StudentDashboard.GUI
         private int? _selectedScheduleId = null;
         private Guna2Panel buttonPanel;
         private Panel mainContainer;
+        private Panel buttonContainer; // Panel to hold buttons for centering
 
         public ScheduleForm(int userId)
         {
@@ -62,18 +63,27 @@ namespace StudentDashboard.GUI
                 FillColor = System.Drawing.Color.FromArgb(240, 240, 240),
                 ShadowDecoration = { Enabled = true, Depth = 5, Color = System.Drawing.Color.FromArgb(0, 0, 0, 50) }
             };
+            // Add resize event to buttonPanel for centering buttons
+            buttonPanel.Resize += ButtonPanel_Resize;
+
+            // Create panel to hold buttons
+            buttonContainer = new Panel
+            {
+                AutoSize = true, // Auto size based on contents
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                Padding = new Padding(0) // No padding needed here
+            };
 
             weekView = new ScheduleWeekView
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent // Ensure background is transparent
             };
 
             btnAdd = new Guna2Button
             {
                 Text = "Thêm mới",
                 Size = new System.Drawing.Size(120, 40),
-                Location = new System.Drawing.Point(10, 10),
                 BorderRadius = 8,
                 FillColor = System.Drawing.Color.FromArgb(94, 148, 255),
                 HoverState = { FillColor = System.Drawing.Color.FromArgb(74, 128, 235) },
@@ -86,7 +96,6 @@ namespace StudentDashboard.GUI
             {
                 Text = "Xóa",
                 Size = new System.Drawing.Size(120, 40),
-                Location = new System.Drawing.Point(140, 10),
                 BorderRadius = 8,
                 FillColor = System.Drawing.Color.FromArgb(255, 87, 87),
                 HoverState = { FillColor = System.Drawing.Color.FromArgb(235, 67, 67) },
@@ -99,7 +108,6 @@ namespace StudentDashboard.GUI
             {
                 Text = "Làm mới",
                 Size = new System.Drawing.Size(120, 40),
-                Location = new System.Drawing.Point(270, 10),
                 BorderRadius = 8,
                 FillColor = System.Drawing.Color.FromArgb(46, 204, 113),
                 HoverState = { FillColor = System.Drawing.Color.FromArgb(26, 184, 93) },
@@ -108,10 +116,37 @@ namespace StudentDashboard.GUI
             };
             btnEdit.Click += BtnRefresh_Click;
 
-            buttonPanel.Controls.AddRange(new Control[] { btnAdd, btnDelete, btnEdit });
+            // Add buttons to the button container
+            buttonContainer.Controls.AddRange(new Control[] { btnAdd, btnDelete, btnEdit });
+            // Arrange buttons horizontally within the container with some spacing
+            btnAdd.Location = new System.Drawing.Point(0, 0);
+            btnDelete.Location = new System.Drawing.Point(btnAdd.Right + 20, 0); // 20 pixels spacing
+            btnEdit.Location = new System.Drawing.Point(btnDelete.Right + 20, 0);
+
+            // Add button container to buttonPanel
+            buttonPanel.Controls.Add(buttonContainer);
+
             mainContainer.Controls.Add(weekView);
             this.Controls.AddRange(new Control[] { mainContainer, buttonPanel });
+            
+            // Initial centering
+            ButtonPanel_Resize(this, EventArgs.Empty);
         }
+
+        // Handle buttonPanel resize to center the buttonContainer
+        private void ButtonPanel_Resize(object sender, EventArgs e)
+        {
+            if (buttonPanel.Width > buttonContainer.Width)
+            {
+                int x = (buttonPanel.Width - buttonContainer.Width) / 2;
+                buttonContainer.Location = new System.Drawing.Point(x, (buttonPanel.Height - buttonContainer.Height) / 2); // Center vertically too
+            } else
+            {
+                // If panel is smaller than buttons, just place at 0, center vertically
+                buttonContainer.Location = new System.Drawing.Point(0, (buttonPanel.Height - buttonContainer.Height) / 2);
+            }
+        }
+
         private void OnScheduleSelected(int scheduleId)
         {
             _selectedScheduleId = scheduleId;
