@@ -28,60 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btLogin = new Button();
-            btRegister = new Button();
-            lbTitle = new Label();
-            SuspendLayout();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse();
+            this.guna2BtnLogin = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2BtnRegister = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabelTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2CirclePictureBoxLogo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBoxLogo)).BeginInit();
+            this.SuspendLayout();
             // 
-            // btLogin
+            // guna2Elipse1
             // 
-            btLogin.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btLogin.Location = new Point(762, 396);
-            btLogin.Name = "btLogin";
-            btLogin.Size = new Size(257, 85);
-            btLogin.TabIndex = 1;
-            btLogin.Text = "Đăng nhập";
-            btLogin.UseVisualStyleBackColor = true;
-            btLogin.Click += btLogin_Click;
+            this.guna2Elipse1.BorderRadius = 30;
+            this.guna2Elipse1.TargetControl = this;
             // 
-            // btRegister
+            // guna2CirclePictureBoxLogo
             // 
-            btRegister.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btRegister.Location = new Point(762, 617);
-            btRegister.Name = "btRegister";
-            btRegister.Size = new Size(257, 85);
-            btRegister.TabIndex = 2;
-            btRegister.Text = "Đăng kí";
-            btRegister.UseVisualStyleBackColor = true;
-            btRegister.Click += btRegister_Click;
+            this.guna2CirclePictureBoxLogo.Image = Properties.Resources.uit_logo1; // Đổi thành logo của bạn
+            this.guna2CirclePictureBoxLogo.Location = new Point((this.ClientSize.Width - 120) / 2, 40);
+            this.guna2CirclePictureBoxLogo.Size = new Size(120, 120);
+            this.guna2CirclePictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBoxLogo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             // 
-            // lbTitle
+            // guna2HtmlLabelTitle
             // 
-            lbTitle.Font = new Font("Cambria", 24F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbTitle.Location = new Point(425, 149);
-            lbTitle.Name = "lbTitle";
-            lbTitle.Size = new Size(1028, 65);
-            lbTitle.TabIndex = 3;
-            lbTitle.Text = "Chào mừng bạn đến với Student Dashboard!";
-            lbTitle.TextAlign = ContentAlignment.MiddleCenter;
+            this.guna2HtmlLabelTitle.BackColor = Color.Transparent;
+            this.guna2HtmlLabelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            this.guna2HtmlLabelTitle.ForeColor = Color.FromArgb(0, 117, 214);
+            this.guna2HtmlLabelTitle.Location = new Point((this.ClientSize.Width - 600) / 2, 180);
+            this.guna2HtmlLabelTitle.Size = new Size(600, 60);
+            this.guna2HtmlLabelTitle.Text = "Chào mừng bạn đến với Student Dashboard!";
+            this.guna2HtmlLabelTitle.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2BtnLogin
+            // 
+            this.guna2BtnLogin.BorderRadius = 20;
+            this.guna2BtnLogin.FillColor = Color.FromArgb(0, 117, 214);
+            this.guna2BtnLogin.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            this.guna2BtnLogin.ForeColor = Color.White;
+            this.guna2BtnLogin.Size = new Size(320, 60);
+            this.guna2BtnLogin.Location = new Point((this.ClientSize.Width - 320) / 2, 280);
+            this.guna2BtnLogin.Text = "Đăng nhập";
+            this.guna2BtnLogin.Click += new EventHandler(this.btLogin_Click);
+            // 
+            // guna2BtnRegister
+            // 
+            this.guna2BtnRegister.BorderRadius = 20;
+            this.guna2BtnRegister.FillColor = Color.LightGray;
+            this.guna2BtnRegister.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            this.guna2BtnRegister.ForeColor = Color.FromArgb(0, 117, 214);
+            this.guna2BtnRegister.Size = new Size(320, 60);
+            this.guna2BtnRegister.Location = new Point((this.ClientSize.Width - 320) / 2, 360);
+            this.guna2BtnRegister.Text = "Đăng ký";
+            this.guna2BtnRegister.Click += new EventHandler(this.btRegister_Click);
+
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1895, 1146);
-            Controls.Add(lbTitle);
-            Controls.Add(btRegister);
-            Controls.Add(btLogin);
-            Name = "MainForm";
-            Text = "Student Dashboard";
-            Load += MainForm_Load;
-            ResumeLayout(false);
-        } 
+            this.AutoScaleDimensions = new SizeF(10F, 25F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.White;
+            this.ClientSize = new Size(1000, 650);
+            this.Controls.Add(this.guna2CirclePictureBoxLogo);
+            this.Controls.Add(this.guna2HtmlLabelTitle);
+            this.Controls.Add(this.guna2BtnLogin);
+            this.Controls.Add(this.guna2BtnRegister);
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.Name = "MainForm";
+            //this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "Student Dashboard";
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBoxLogo)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
 
         #endregion
-        private Button btLogin;
-        private Button btRegister;
-        private Label lbTitle;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Button guna2BtnLogin;
+        private Guna.UI2.WinForms.Guna2Button guna2BtnRegister;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabelTitle;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBoxLogo;
     }
 }
