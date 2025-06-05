@@ -3,17 +3,19 @@ using System.Windows.Forms;
 using System.Linq;
 using StudentDashboard.Models;
 using StudentDashboard.BLL;
+using Guna.UI2.WinForms;
 
 namespace StudentDashboard.GUI
 {
     public class ScheduleForm : Form
     {
-        private Button btnEdit;
-        private Button btnDelete;
-        private Button btnAdd;
+        private Guna2Button btnEdit;
+        private Guna2Button btnDelete;
+        private Guna2Button btnAdd;
         private ScheduleWeekView weekView;
         private int _userId;
         private int? _selectedScheduleId = null;
+        private Guna2Panel buttonPanel;
 
         public ScheduleForm(int userId)
         {
@@ -28,40 +30,76 @@ namespace StudentDashboard.GUI
             this.Text = "Thời khóa biểu";
             this.Size = new System.Drawing.Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = System.Drawing.Color.White;
+
+            // Create main container
+            var mainContainer = new Guna2Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(10)
+            };
+
+            // Create button panel
+            buttonPanel = new Guna2Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 60,
+                Padding = new Padding(10),
+                BackColor = System.Drawing.Color.FromArgb(240, 240, 240)
+            };
 
             weekView = new ScheduleWeekView
             {
                 Dock = DockStyle.Fill
             };
 
-            btnAdd = new Button
+            btnAdd = new Guna2Button
             {
                 Text = "Thêm mới",
-                Dock = DockStyle.Bottom,
-                Height = 40
+                Size = new System.Drawing.Size(120, 40),
+                Location = new System.Drawing.Point(10, 10),
+                BorderRadius = 8,
+                FillColor = System.Drawing.Color.FromArgb(94, 148, 255),
+                HoverState = { FillColor = System.Drawing.Color.FromArgb(74, 128, 235) },
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.White
             };
             btnAdd.Click += BtnAdd_Click;
 
-            btnDelete = new Button
+            btnDelete = new Guna2Button
             {
                 Text = "Xóa",
-                Dock = DockStyle.Bottom,
-                Height = 40
+                Size = new System.Drawing.Size(120, 40),
+                Location = new System.Drawing.Point(140, 10),
+                BorderRadius = 8,
+                FillColor = System.Drawing.Color.FromArgb(255, 87, 87),
+                HoverState = { FillColor = System.Drawing.Color.FromArgb(235, 67, 67) },
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.White
             };
             btnDelete.Click += BtnDelete_Click;
 
-            btnEdit = new Button
+            btnEdit = new Guna2Button
             {
                 Text = "Làm mới",
-                Dock = DockStyle.Bottom,
-                Height = 40
+                Size = new System.Drawing.Size(120, 40),
+                Location = new System.Drawing.Point(270, 10),
+                BorderRadius = 8,
+                FillColor = System.Drawing.Color.FromArgb(46, 204, 113),
+                HoverState = { FillColor = System.Drawing.Color.FromArgb(26, 184, 93) },
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.White
             };
             btnEdit.Click += BtnRefresh_Click;
 
-            this.Controls.Add(weekView);
-            this.Controls.Add(btnAdd);
-            this.Controls.Add(btnDelete);
-            this.Controls.Add(btnEdit);
+            buttonPanel.Controls.Add(btnAdd);
+            buttonPanel.Controls.Add(btnDelete);
+            buttonPanel.Controls.Add(btnEdit);
+
+            mainContainer.Controls.Add(weekView);
+            mainContainer.Controls.Add(buttonPanel);
+
+            this.Controls.Add(mainContainer);
         }
         private void OnScheduleSelected(int scheduleId)
         {
