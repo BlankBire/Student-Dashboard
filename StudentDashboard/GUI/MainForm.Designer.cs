@@ -28,175 +28,186 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse();
-            this.guna2BtnLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2BtnRegister = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabelTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2CirclePictureBoxLogo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            // Thêm các control cho thanh điều hướng custom
-            this.pnTitleBar = new Panel();
-            this.lbFormTitle = new Label();
-            this.btnMinimize = new Button();
-            this.btnMaximize = new Button();
-            this.btnClose = new Button();
-
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBoxLogo)).BeginInit();
-            this.pnTitleBar.SuspendLayout();
-            this.SuspendLayout();
-
+            components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            guna2BtnLogin = new Guna.UI2.WinForms.Guna2Button();
+            guna2BtnRegister = new Guna.UI2.WinForms.Guna2Button();
+            guna2HtmlLabelTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            pnTitleBar = new Panel();
+            btnClose = new Button();
+            btnMaximize = new Button();
+            btnMinimize = new Button();
+            lbFormTitle = new Label();
+            pictureBox1 = new PictureBox();
+            pnTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
-            // Thanh tiêu đề custom
+            // guna2Elipse1
             // 
-            this.pnTitleBar.BackColor = Color.FromArgb(255, 245, 238);
-            this.pnTitleBar.Controls.Add(this.btnClose);
-            this.pnTitleBar.Controls.Add(this.btnMaximize);
-            this.pnTitleBar.Controls.Add(this.btnMinimize);
-            this.pnTitleBar.Controls.Add(this.lbFormTitle);
-            this.pnTitleBar.Dock = DockStyle.Top;
-            this.pnTitleBar.Location = new Point(0, 0);
-            this.pnTitleBar.Name = "pnTitleBar";
-            this.pnTitleBar.Size = new Size(1000, 40);
-            this.pnTitleBar.TabIndex = 0;
-            this.pnTitleBar.MouseDown += new MouseEventHandler(this.pnTitleBar_MouseDown);
-
+            guna2Elipse1.BorderRadius = 15;
+            guna2Elipse1.TargetControl = this;
             // 
-            // Tiêu đề form
+            // guna2BtnLogin
             // 
-            this.lbFormTitle.AutoSize = true;
-            //this.lbFormTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            //this.lbFormTitle.ForeColor = Color.White;
-            this.lbFormTitle.Location = new Point(12, 10);
-            this.lbFormTitle.Name = "lbFormTitle";
-            this.lbFormTitle.Size = new Size(150, 21);
-            this.lbFormTitle.TabIndex = 0;
-            this.lbFormTitle.Text = "Student Dashboard";
-
+            guna2BtnLogin.BorderRadius = 20;
+            guna2BtnLogin.CustomizableEdges = customizableEdges1;
+            guna2BtnLogin.FillColor = Color.FromArgb(0, 117, 214);
+            guna2BtnLogin.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            guna2BtnLogin.ForeColor = Color.White;
+            guna2BtnLogin.Location = new Point(334, 333);
+            guna2BtnLogin.Name = "guna2BtnLogin";
+            guna2BtnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2BtnLogin.Size = new Size(320, 60);
+            guna2BtnLogin.TabIndex = 3;
+            guna2BtnLogin.Text = "Đăng nhập";
+            guna2BtnLogin.Click += btLogin_Click;
+            guna2BtnLogin.Parent = pictureBox1;
+            guna2BtnLogin.FillColor = Color.FromArgb(200, 0, 117, 214);
+            guna2BtnLogin.ShadowDecoration.Enabled = false;
+            guna2BtnLogin.BackColor = Color.Transparent;
             // 
-            // Nút đóng
+            // guna2BtnRegister
             // 
-            this.btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnClose.BackColor = Color.Transparent;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = Color.Red;
-            this.btnClose.FlatStyle = FlatStyle.Flat;
-            this.btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            this.btnClose.ForeColor = Color.Black;
-            this.btnClose.Location = new Point(960, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new Size(40, 40);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "✕";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new EventHandler(this.btnClose_Click);
-
+            guna2BtnRegister.BorderRadius = 20;
+            guna2BtnRegister.CustomizableEdges = customizableEdges3;
+            guna2BtnRegister.FillColor = Color.LightGray;
+            guna2BtnRegister.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            guna2BtnRegister.ForeColor = Color.FromArgb(0, 117, 214);
+            guna2BtnRegister.Location = new Point(334, 478);
+            guna2BtnRegister.Name = "guna2BtnRegister";
+            guna2BtnRegister.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2BtnRegister.Size = new Size(320, 60);
+            guna2BtnRegister.TabIndex = 4;
+            guna2BtnRegister.Text = "Đăng ký";
+            guna2BtnRegister.Click += btRegister_Click;
+            guna2BtnRegister.Parent = pictureBox1;
+            guna2BtnRegister.FillColor = Color.FromArgb(200, 255, 255, 255);
+            guna2BtnRegister.ShadowDecoration.Enabled = false;
+            guna2BtnRegister.BackColor = Color.Transparent;
             // 
-            // Nút phóng to/thu nhỏ
+            // guna2HtmlLabelTitle
             // 
-            this.btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnMaximize.BackColor = Color.Transparent;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            this.btnMaximize.FlatStyle = FlatStyle.Flat;
-            this.btnMaximize.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            this.btnMaximize.ForeColor = Color.Black;
-            this.btnMaximize.Location = new Point(920, 0);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new Size(40, 40);
-            this.btnMaximize.TabIndex = 2;
-            this.btnMaximize.Text = "□";
-            this.btnMaximize.UseVisualStyleBackColor = false;
-            this.btnMaximize.Click += new EventHandler(this.btnMaximize_Click);
-
+            guna2HtmlLabelTitle.AutoSize = false;
+            guna2HtmlLabelTitle.BackColor = Color.Transparent;
+            guna2HtmlLabelTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            guna2HtmlLabelTitle.ForeColor = Color.FromArgb(0, 117, 214);
+            guna2HtmlLabelTitle.Location = new Point(16, 165);
+            guna2HtmlLabelTitle.Name = "guna2HtmlLabelTitle";
+            guna2HtmlLabelTitle.Size = new Size(981, 72);
+            guna2HtmlLabelTitle.TabIndex = 2;
+            guna2HtmlLabelTitle.Text = "Chào mừng bạn đến với Student Dashboard!";
+            guna2HtmlLabelTitle.TextAlignment = ContentAlignment.MiddleCenter;
+            guna2HtmlLabelTitle.Parent = pictureBox1;
             // 
-            // Nút thu nhỏ
+            // pnTitleBar
             // 
-            this.btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnMinimize.BackColor = Color.Transparent;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            this.btnMinimize.FlatStyle = FlatStyle.Flat;
-            this.btnMinimize.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            this.btnMinimize.ForeColor = Color.Black;
-            this.btnMinimize.Location = new Point(880, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new Size(40, 40);
-            this.btnMinimize.TabIndex = 1;
-            this.btnMinimize.Text = "─";
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new EventHandler(this.btnMinimize_Click);
-
+            pnTitleBar.BackColor = Color.FromArgb(255, 245, 238);
+            pnTitleBar.Controls.Add(btnClose);
+            pnTitleBar.Controls.Add(btnMaximize);
+            pnTitleBar.Controls.Add(btnMinimize);
+            pnTitleBar.Controls.Add(lbFormTitle);
+            pnTitleBar.Dock = DockStyle.Top;
+            pnTitleBar.Location = new Point(0, 0);
+            pnTitleBar.Name = "pnTitleBar";
+            pnTitleBar.Size = new Size(1009, 40);
+            pnTitleBar.TabIndex = 0;
+            pnTitleBar.MouseDown += pnTitleBar_MouseDown;
             // 
-            // guna2Elipse1 - Bo góc cho form
+            // btnClose
             // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(969, 0);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(40, 40);
+            btnClose.TabIndex = 3;
+            btnClose.Text = "✕";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
-            // Logo
+            // btnMaximize
             // 
-            this.guna2CirclePictureBoxLogo.Image = Properties.Resources.uit_logo1;
-            this.guna2CirclePictureBoxLogo.Location = new Point((this.ClientSize.Width - 120) / 2, 80);
-            this.guna2CirclePictureBoxLogo.Size = new Size(120, 120);
-            this.guna2CirclePictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBoxLogo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-
+            btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximize.BackColor = Color.Transparent;
+            btnMaximize.FlatAppearance.BorderSize = 0;
+            btnMaximize.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btnMaximize.FlatStyle = FlatStyle.Flat;
+            btnMaximize.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnMaximize.ForeColor = Color.Black;
+            btnMaximize.Location = new Point(929, 0);
+            btnMaximize.Name = "btnMaximize";
+            btnMaximize.Size = new Size(40, 40);
+            btnMaximize.TabIndex = 2;
+            btnMaximize.Text = "□";
+            btnMaximize.UseVisualStyleBackColor = false;
+            btnMaximize.Click += btnMaximize_Click;
             // 
-            // Tiêu đề chính
+            // btnMinimize
             // 
-            this.guna2HtmlLabelTitle.BackColor = Color.Transparent;
-            this.guna2HtmlLabelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            this.guna2HtmlLabelTitle.ForeColor = Color.FromArgb(0, 117, 214);
-            this.guna2HtmlLabelTitle.Location = new Point((this.ClientSize.Width - 600) / 2, 220);
-            this.guna2HtmlLabelTitle.Size = new Size(600, 60);
-            this.guna2HtmlLabelTitle.Text = "Chào mừng bạn đến với Student Dashboard!";
-            this.guna2HtmlLabelTitle.TextAlignment = ContentAlignment.MiddleCenter;
-
+            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimize.BackColor = Color.Transparent;
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnMinimize.ForeColor = Color.Black;
+            btnMinimize.Location = new Point(889, 0);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(40, 40);
+            btnMinimize.TabIndex = 1;
+            btnMinimize.Text = "─";
+            btnMinimize.UseVisualStyleBackColor = false;
+            btnMinimize.Click += btnMinimize_Click;
             // 
-            // Nút đăng nhập
+            // lbFormTitle
             // 
-            this.guna2BtnLogin.BorderRadius = 20;
-            this.guna2BtnLogin.FillColor = Color.FromArgb(0, 117, 214);
-            this.guna2BtnLogin.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            this.guna2BtnLogin.ForeColor = Color.White;
-            this.guna2BtnLogin.Size = new Size(320, 60);
-            this.guna2BtnLogin.Location = new Point((this.ClientSize.Width - 320) / 2, 320);
-            this.guna2BtnLogin.Text = "Đăng nhập";
-            this.guna2BtnLogin.Click += new EventHandler(this.btLogin_Click);
-
+            lbFormTitle.AutoSize = true;
+            lbFormTitle.Location = new Point(12, 10);
+            lbFormTitle.Name = "lbFormTitle";
+            lbFormTitle.Size = new Size(166, 25);
+            lbFormTitle.TabIndex = 0;
+            lbFormTitle.Text = "Student Dashboard";
             // 
-            // Nút đăng ký
+            // pictureBox1
             // 
-            this.guna2BtnRegister.BorderRadius = 20;
-            this.guna2BtnRegister.FillColor = Color.LightGray;
-            this.guna2BtnRegister.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            this.guna2BtnRegister.ForeColor = Color.FromArgb(0, 117, 214);
-            this.guna2BtnRegister.Size = new Size(320, 60);
-            this.guna2BtnRegister.Location = new Point((this.ClientSize.Width - 320) / 2, 400);
-            this.guna2BtnRegister.Text = "Đăng ký";
-            this.guna2BtnRegister.Click += new EventHandler(this.btRegister_Click);
-
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 38);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1009, 640);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new SizeF(10F, 25F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.BackColor = Color.White;
-            this.ClientSize = new Size(1000, 650);
-            this.Controls.Add(this.pnTitleBar);
-            this.Controls.Add(this.guna2CirclePictureBoxLogo);
-            this.Controls.Add(this.guna2HtmlLabelTitle);
-            this.Controls.Add(this.guna2BtnLogin);
-            this.Controls.Add(this.guna2BtnRegister);
-            this.FormBorderStyle = FormBorderStyle.None; // Bỏ thanh tiêu đề mặc định
-            this.Name = "MainForm";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "Student Dashboard";
-
-            this.pnTitleBar.ResumeLayout(false);
-            this.pnTitleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBoxLogo)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1009, 674);
+            Controls.Add(pictureBox1);
+            Controls.Add(pnTitleBar);
+            //Controls.Add(guna2HtmlLabelTitle);
+            //Controls.Add(guna2BtnLogin);
+            //Controls.Add(guna2BtnRegister);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Student Dashboard";
+            pnTitleBar.ResumeLayout(false);
+            pnTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -209,6 +220,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2BtnLogin;
         private Guna.UI2.WinForms.Guna2Button guna2BtnRegister;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabelTitle;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBoxLogo;
+        private PictureBox pictureBox1;
     }
 }

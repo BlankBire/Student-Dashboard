@@ -23,16 +23,6 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
         }
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            // Căn giữa các control
-            guna2CirclePictureBoxLogo.Location = new Point((this.ClientSize.Width - guna2CirclePictureBoxLogo.Width) / 2, 40);
-            guna2HtmlLabelTitle.Location = new Point((this.ClientSize.Width - guna2HtmlLabelTitle.Width) / 2, 180);
-            guna2BtnLogin.Location = new Point((this.ClientSize.Width - guna2BtnLogin.Width) / 2, 280);
-            guna2BtnRegister.Location = new Point((this.ClientSize.Width - guna2BtnRegister.Width) / 2, 360);
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
