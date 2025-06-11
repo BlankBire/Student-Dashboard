@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using Guna.UI2.WinForms;
 
 namespace StudentDashboard.GUI
 {
@@ -20,6 +20,7 @@ namespace StudentDashboard.GUI
         NetworkStream stream;
         String username;
         private string currentRecipient = null;
+        private int hoveredUserIndex = -1;
 
         public ChatForm(string username)
         {
@@ -29,22 +30,24 @@ namespace StudentDashboard.GUI
             LoadUserList();
             panelChat.Resize += panelChat_Resize;
             ChatForm_Resize(this, EventArgs.Empty);
+            listUsers.MouseMove += ListUsers_MouseMove;
+            listUsers.MouseLeave += ListUsers_MouseLeave;
         }
 
         private void panelChat_Resize(object sender, EventArgs e)
         {
             int minWidth = 200;
-            int rowWidth = Math.Max(panelChat.ClientSize.Width - 20, minWidth);
-            int bubbleWidth = Math.Max(rowWidth - 60, 100);
+            int rowWidth = Math.Max(panelChat.ClientSize.Width - 40, minWidth);
+            int bubbleWidth = Math.Max(rowWidth - 80, 100);
 
             foreach (Control row in panelChat.Controls)
             {
-                if (row is TableLayoutPanel table)
+                if (row is Guna2Panel table)
                 {
                     table.Width = rowWidth;
                     foreach (Control ctrl in table.Controls)
                     {
-                        if (ctrl is Panel bubble)
+                        if (ctrl is Guna2Panel bubble)
                         {
                             bubble.MaximumSize = new Size(bubbleWidth, 0);
                         }
@@ -77,17 +80,17 @@ namespace StudentDashboard.GUI
 
         private void AddChatBubble(string sender, string message, string time, bool isMine)
         {
-            var rowWidth = Math.Max(panelChat.ClientSize.Width - 20, 200);
-            var bubbleWidth = Math.Max(rowWidth - 60, 100);
+            var rowWidth = Math.Max(panelChat.ClientSize.Width - 40, 200);
+            var bubbleWidth = Math.Max(rowWidth - 80, 100);
 
-            var bubble = new Panel
+            var bubble = new Guna2Panel
             {
                 AutoSize = true,
                 AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                BackColor = isMine ? Color.LightSkyBlue : Color.LightGray,
-                Padding = new Padding(10),
+                FillColor = isMine ? Color.FromArgb(94, 148, 255) : Color.FromArgb(240, 240, 240),
+                Padding = new Padding(15),
                 MaximumSize = new Size(bubbleWidth, 0),
-                BorderStyle = BorderStyle.FixedSingle,
+                BorderRadius = 15,
                 Margin = new Padding(0, 5, 0, 5)
             };
 
@@ -101,32 +104,33 @@ namespace StudentDashboard.GUI
                 BackColor = Color.Transparent,
             };
 
-            var lblSender = new Label
+            var lblSender = new Guna2HtmlLabel
             {
                 Text = sender,
                 Font = new Font("Segoe UI", 8, FontStyle.Bold),
-                ForeColor = Color.DimGray,
+                ForeColor = isMine ? Color.White : Color.FromArgb(64, 64, 64),
                 AutoSize = true,
-                MaximumSize = new Size(bubbleWidth - 20, 0),
+                MaximumSize = new Size(bubbleWidth - 30, 0),
                 Margin = new Padding(0, 0, 0, 2)
             };
 
-            var lblMsg = new Label
+            var lblMsg = new Guna2HtmlLabel
             {
                 Text = message,
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                ForeColor = isMine ? Color.White : Color.FromArgb(64, 64, 64),
                 AutoSize = true,
-                MaximumSize = new Size(bubbleWidth - 20, 0),
+                MaximumSize = new Size(bubbleWidth - 30, 0),
                 Margin = new Padding(0, 0, 0, 2)
             };
 
-            var lblTime = new Label
+            var lblTime = new Guna2HtmlLabel
             {
                 Text = time,
                 Font = new Font("Segoe UI", 7, FontStyle.Italic),
-                ForeColor = Color.Gray,
+                ForeColor = isMine ? Color.FromArgb(200, 200, 200) : Color.FromArgb(128, 128, 128),
                 AutoSize = true,
-                MaximumSize = new Size(bubbleWidth - 20, 0),
+                MaximumSize = new Size(bubbleWidth - 30, 0),
                 Margin = new Padding(0, 0, 0, 0)
             };
 
@@ -135,17 +139,16 @@ namespace StudentDashboard.GUI
             layout.Controls.Add(lblTime, 0, 2);
             bubble.Controls.Add(layout);
 
-            var container = new Panel
+            var container = new Guna2Panel
             {
                 AutoSize = true,
                 Dock = DockStyle.Top,
                 AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                Width = panelChat.ClientSize.Width - 20,
+                Width = panelChat.ClientSize.Width - 40,
                 BackColor = Color.Transparent,
                 Margin = new Padding(0, 5, 0, 5)
             };
 
-            // Căn phải/trái cho bubble
             if (isMine)
             {
                 bubble.Anchor = AnchorStyles.Right | AnchorStyles.Top;
@@ -155,15 +158,13 @@ namespace StudentDashboard.GUI
             else
             {
                 bubble.Anchor = AnchorStyles.Left | AnchorStyles.Top;
-                bubble.Left = 0;
+                bubble.Left = 10;
                 container.Controls.Add(bubble);
             }
 
-            // Thêm container và đưa xuống dưới cùng
             panelChat.Controls.Add(container);
-            container.BringToFront(); // Tin nhắn mới nhất ở dưới cùng
+            container.BringToFront();
 
-            // Cuộn xuống dưới cùng
             this.BeginInvoke((MethodInvoker)(() =>
             {
                 panelChat.AutoScrollPosition = new Point(0, panelChat.VerticalScroll.Maximum);
@@ -178,7 +179,6 @@ namespace StudentDashboard.GUI
                 client = new TcpClient("127.0.0.1", 8000);
                 stream = client.GetStream();
 
-                // GỬI USERNAME NGAY SAU KHI KẾT NỐI
                 byte[] userBytes = Encoding.UTF8.GetBytes(username);
                 stream.Write(userBytes, 0, userBytes.Length);
 
@@ -201,7 +201,7 @@ namespace StudentDashboard.GUI
                 {
                     byte[] buffer = new byte[1024];
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                    if (bytesRead == 0) continue; // Connection closed
+                    if (bytesRead == 0) continue;
 
                     string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     string time = DateTime.Now.ToString("HH:mm");
@@ -222,6 +222,47 @@ namespace StudentDashboard.GUI
                     MessageBox.Show("Lỗi khi nhận tin nhắn: " + ex.Message);
                     break;
                 }
+            }
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            string message = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(message) && !string.IsNullOrEmpty(currentRecipient))
+            {
+                try
+                {
+                    string fullMessage = $"{currentRecipient}|{message}";
+                    byte[] buffer = Encoding.UTF8.GetBytes(fullMessage);
+                    stream.Write(buffer, 0, buffer.Length);
+                    AddChatBubble(this.username, message, DateTime.Now.ToString("HH:mm"), true);
+                    textBox1.Clear();
+                    SaveMessageToDatabase(this.username, currentRecipient, message);
+                    LoadMessageHistory(this.username, currentRecipient);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi gửi tin nhắn: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tin nhắn và chọn người nhận.");
+            }
+        }
+
+        private void listUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listUsers.SelectedItem != null)
+            {
+                currentRecipient = listUsers.SelectedItem.ToString();
+                Task.Delay(10).ContinueWith(_ =>
+                {
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        LoadMessageHistory(this.username, currentRecipient);
+                    }));
+                });
             }
         }
 
@@ -287,10 +328,10 @@ namespace StudentDashboard.GUI
                 {
                     conn.Open();
                     string query = @"SELECT sender_id, content, sent_at 
-                             FROM messages 
-                             WHERE (sender_id = @id1 AND receiver_id = @id2)
-                                OR (sender_id = @id2 AND receiver_id = @id1)
-                             ORDER BY sent_at ASC";
+                                   FROM messages 
+                                   WHERE (sender_id = @id1 AND receiver_id = @id2)
+                                      OR (sender_id = @id2 AND receiver_id = @id1)
+                                   ORDER BY sent_at ASC";
                     using (var cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id1", id1);
@@ -316,57 +357,90 @@ namespace StudentDashboard.GUI
             }
         }
 
-        private void comboRecipient_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string selectedUser = comboRecipient.SelectedItem.ToString();
-            LoadMessageHistory(this.username, selectedUser);
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                textBox1.PlaceholderText = "Nhập tin nhắn...";
+            }
         }
 
-        private void btnSend_Click(object sender, EventArgs e)
+        private void ListUsers_MouseMove(object sender, MouseEventArgs e)
         {
-            string message = textBox1.Text.Trim();
-            if (!string.IsNullOrEmpty(message) && !string.IsNullOrEmpty(currentRecipient))
+            int index = listUsers.IndexFromPoint(e.Location);
+            if (index != hoveredUserIndex)
             {
-                try
+                hoveredUserIndex = index;
+                listUsers.Invalidate();
+            }
+        }
+
+        private void ListUsers_MouseLeave(object sender, EventArgs e)
+        {
+            hoveredUserIndex = -1;
+            listUsers.Invalidate();
+        }
+
+        private void ListUsers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            bool isHovered = (e.Index == hoveredUserIndex);
+
+            Color bgColor = Color.FromArgb(214, 230, 255);
+            Color selectedColor = Color.FromArgb(163, 200, 255);
+            Color hoverColor = Color.FromArgb(200, 220, 255);
+            int radius = 10;
+            Rectangle rect = new Rectangle(e.Bounds.X + 4, e.Bounds.Y + 2, e.Bounds.Width - 8, e.Bounds.Height - 4);
+
+            using (var path = RoundedRect(rect, radius))
+            using (var brush = new SolidBrush(bgColor))
+            {
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                e.Graphics.FillPath(brush, path);
+            }
+
+            if (isSelected || isHovered)
+            {
+                Color overlay = isSelected ? selectedColor : hoverColor;
+                using (var path = RoundedRect(rect, radius))
+                using (var brush = new SolidBrush(overlay))
                 {
-                    string fullMessage = $"{currentRecipient}|{message}";
-                    byte[] buffer = Encoding.UTF8.GetBytes(fullMessage);
-                    stream.Write(buffer, 0, buffer.Length);
-                    AddChatBubble(this.username, message, DateTime.Now.ToString("HH:mm"), true);
-                    textBox1.Clear();
-                    SaveMessageToDatabase(this.username, currentRecipient, message);
-                    LoadMessageHistory(this.username, currentRecipient);
+                    e.Graphics.FillPath(brush, path);
                 }
-                catch (Exception ex)
+            }
+
+            string username = listUsers.Items[e.Index].ToString();
+            using (var font = new Font("Segoe UI", 10, isSelected ? FontStyle.Bold : FontStyle.Regular))
+            using (var brush = new SolidBrush(Color.FromArgb(64, 64, 64)))
+            {
+                e.Graphics.DrawString(username, font, brush, rect.X + 12, rect.Y + 10);
+            }
+
+            if (e.Index < listUsers.Items.Count - 1)
+            {
+                using (var pen = new Pen(Color.FromArgb(200, 210, 230)))
                 {
-                    MessageBox.Show("Lỗi khi gửi tin nhắn: " + ex.Message);
+                    int y = e.Bounds.Bottom - 1;
+                    e.Graphics.DrawLine(pen, rect.X, y, rect.Right, y);
                 }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tin nhắn và chọn người nhận.");
-            }
+
+            e.DrawFocusRectangle();
         }
 
-        private void listUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private System.Drawing.Drawing2D.GraphicsPath RoundedRect(Rectangle bounds, int radius)
         {
-            if (listUsers.SelectedItem != null)
-            {
-                currentRecipient = listUsers.SelectedItem.ToString();
-                // Delay 10ms để form layout xong
-                Task.Delay(10).ContinueWith(_ =>
-                {
-                    this.Invoke((MethodInvoker)(() =>
-                    {
-                        LoadMessageHistory(this.username, currentRecipient);
-                    }));
-                });
-            }
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            int d = radius * 2;
+            var path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddArc(bounds.X, bounds.Y, d, d, 180, 90);
+            path.AddArc(bounds.Right - d, bounds.Y, d, d, 270, 90);
+            path.AddArc(bounds.Right - d, bounds.Bottom - d, d, d, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
         }
     }
 }
+
