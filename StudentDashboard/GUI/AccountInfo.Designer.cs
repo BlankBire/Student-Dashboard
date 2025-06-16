@@ -78,7 +78,7 @@ namespace StudentDashboard.GUI
             lblTitle.Font = new Font("Segoe UI", 22, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(94, 148, 255);
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(leftX + (groupWidth - lblTitle.PreferredWidth) / 2, topY);
+            lblTitle.Location = new Point(leftX + (groupWidth - lblTitle.PreferredWidth) / 2, topY - 70);
 
             // Block 1: UserName
             int block1Y = topY + 60;
