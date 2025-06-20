@@ -7,6 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button btnSchedule;
+        private Button btnForum;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -61,6 +62,7 @@
             panel7 = new Panel();
             textBox10 = new TextBox();
             panel6 = new Panel();
+            this.btnForum = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -157,6 +159,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(btnSchedule);
+            panel2.Controls.Add(btnForum);
             panel2.Controls.Add(btHome);
             panel2.Controls.Add(btnChat);
             panel2.Dock = DockStyle.Left;
@@ -426,6 +429,21 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(207, 555);
             panel6.TabIndex = 0;
+            // 
+            // btnForum
+            // 
+            this.btnForum.FlatAppearance.BorderSize = 0;
+            this.btnForum.FlatStyle = FlatStyle.Flat;
+            this.btnForum.Font = new Font("Segoe UI", 12F);
+            this.btnForum.ForeColor = SystemColors.Desktop;
+            this.btnForum.Image = Properties.Resources.icons8_chat_24;
+            this.btnForum.Location = new Point(-168, 337);
+            this.btnForum.Name = "btnForum";
+            this.btnForum.Size = new Size(409, 70);
+            this.btnForum.TabIndex = 11;
+            this.btnForum.Text = "                 Diễn đàn";
+            this.btnForum.UseVisualStyleBackColor = true;
+            this.btnForum.Click += new System.EventHandler(this.btnForum_Click);
             // 
             // HomePage
             // 
