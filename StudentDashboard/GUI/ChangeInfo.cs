@@ -20,14 +20,14 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = currentUser;
-            tbPassword.PasswordChar = '*';
-            tbUserName.Text = _currentUser.UserName;
+            gunaTbPassword.PasswordChar = '*';
+            gunaTbUserName.Text = _currentUser.UserName;
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            string newUserName = tbUserName.Text.Trim();
-            string password = tbPassword.Text;
+            string newUserName = gunaTbUserName.Text.Trim();
+            string password = gunaTbPassword.Text;
 
             if (string.IsNullOrEmpty(newUserName) || string.IsNullOrEmpty(password))
             {
