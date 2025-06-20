@@ -20,16 +20,16 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = currentUser;
-            tbPassword.PasswordChar = '*';
-            tbNewPassword.PasswordChar = '*';
-            tbConfirmPassword.PasswordChar = '*';
+            gunaTbPassword.PasswordChar = '*';
+            gunaTbNewPassword.PasswordChar = '*';
+            gunaTbConfirmPassword.PasswordChar = '*';
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            string oldPassword = tbPassword.Text.Trim();
-            string newPassword = tbNewPassword.Text.Trim();
-            string confirmPassword = tbConfirmPassword.Text.Trim();
+            string oldPassword = gunaTbPassword.Text.Trim();
+            string newPassword = gunaTbNewPassword.Text.Trim();
+            string confirmPassword = gunaTbConfirmPassword.Text.Trim();
 
             if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
             {
