@@ -94,5 +94,11 @@ namespace StudentDashboard.GUI
             AccountInfo accountInfo = new AccountInfo(_currentUser);
             accountInfo.ShowDialog();
         }
+
+        private void btnForum_Click(object sender, EventArgs e)
+        {
+            ForumForm forumForm = new ForumForm(_currentUser);
+            forumForm.ShowDialog();
+        }
     }
 }
