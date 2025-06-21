@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using StudentDashboard.Models;
 using StudentDashboard.DAL;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace StudentDashboard.GUI
 {
@@ -11,28 +13,54 @@ namespace StudentDashboard.GUI
         private UserModel _currentUser;
         private ForumPostDAL _forumPostDAL = new ForumPostDAL();
         private UserRepository _userRepo = new UserRepository();
+        private List<ForumPost> _posts;
+        private List<ForumPostViewModel> _postViewModels;
+
         public ForumForm(UserModel currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
+            SetupDataGridView();
             LoadPosts();
             btnAddPost.Click += btnAddPost_Click;
+            dgvPosts.CellDoubleClick += dgvPosts_CellDoubleClick;
+        }
+
+        private void SetupDataGridView()
+        {
+            dgvPosts.AutoGenerateColumns = false;
+            dgvPosts.Columns.Clear();
+
+            dgvPosts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tiêu đề", DataPropertyName = "title", Width = 400 });
+            dgvPosts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Người đăng", DataPropertyName = "user_name", Width = 150 });
+            dgvPosts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Ngày đăng", DataPropertyName = "created_at", DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy HH:mm" } });
         }
 
         private void LoadPosts()
         {
-            var posts = _forumPostDAL.GetAllPosts();
-            var table = new System.Data.DataTable();
-            table.Columns.Add("Tiêu đề");
-            table.Columns.Add("Người đăng");
-            table.Columns.Add("Ngày đăng");
-            foreach (var post in posts)
+            _posts = _forumPostDAL.GetAllPosts();
+            _postViewModels = _posts.Select(p => new ForumPostViewModel
             {
-                var user = _userRepo.GetUserById(post.user_id);
-                string userName = user != null ? user.user_name : "[Ẩn danh]";
-                table.Rows.Add(post.title, userName, post.created_at.ToString("dd/MM/yyyy HH:mm"));
+                post_id = p.post_id,
+                user_id = p.user_id,
+                title = p.title,
+                content = p.content,
+                created_at = p.created_at,
+                user_name = _userRepo.GetUserById(p.user_id)?.user_name ?? "[Ẩn danh]"
+            }).ToList();
+            dgvPosts.DataSource = _postViewModels;
+        }
+
+        private void dgvPosts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedPost = _posts[e.RowIndex];
+                using (var detailForm = new PostDetailForm(selectedPost, _currentUser))
+                {
+                    detailForm.ShowDialog();
+                }
             }
-            dgvPosts.DataSource = table;
         }
 
         private void btnAddPost_Click(object sender, EventArgs e)
