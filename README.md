@@ -29,6 +29,8 @@
 - WinForms
   
 # Demo
-- Sẽ được cập nhật dần dần...
+- Sẽ được cập nhật dần...
 
 # Branches
+- main: Nhánh chính của dự án, bao gồm toàn bộ mã nguồn của Dashboard.
+- server: Nhánh chứa mã nguồn riêng cho server.
