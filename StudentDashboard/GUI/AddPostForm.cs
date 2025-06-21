@@ -1,3 +1,4 @@
+using Guna.UI2.WinForms;
 using StudentDashboard.Models;
 using StudentDashboard.DAL;
 using System;
@@ -9,9 +10,9 @@ namespace StudentDashboard.GUI
     {
         private UserModel _currentUser;
         private ForumPostDAL _forumPostDAL = new ForumPostDAL();
-        private TextBox tbTitle;
-        private TextBox tbContent;
-        private Button btnSave;
+        private Guna2TextBox tbTitle;
+        private Guna2TextBox tbContent;
+        private Guna2Button btnSave;
         public AddPostForm(UserModel currentUser)
         {
             _currentUser = currentUser;
@@ -20,16 +21,39 @@ namespace StudentDashboard.GUI
         private void InitializeComponent()
         {
             this.Text = "Thêm bài viết mới";
-            this.Size = new System.Drawing.Size(400, 350);
+            this.Size = new System.Drawing.Size(480, 460);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.StartPosition = FormStartPosition.CenterParent;
 
-            Label lblTitle = new Label { Text = "Tiêu đề:", Left = 20, Top = 20, Width = 60 };
-            tbTitle = new TextBox { Left = 90, Top = 18, Width = 270 };
-            Label lblContent = new Label { Text = "Nội dung:", Left = 20, Top = 60, Width = 70 };
-            tbContent = new TextBox { Left = 20, Top = 90, Width = 340, Height = 140, Multiline = true, ScrollBars = ScrollBars.Vertical };
-            btnSave = new Button { Text = "Lưu", Left = 140, Top = 250, Width = 100 };
+            Guna2HtmlLabel lblTitle = new Guna2HtmlLabel { Text = "Tiêu đề:", Left = 20, Top = 20, Width = 100, Font = new System.Drawing.Font("Segoe UI", 10F) };
+            tbTitle = new Guna2TextBox { Left = 20, Top = 45, Width = 420, Font = new System.Drawing.Font("Segoe UI", 10F) };
+            Guna2HtmlLabel lblContent = new Guna2HtmlLabel { Text = "Nội dung:", Left = 20, Top = 105, Width = 100, Font = new System.Drawing.Font("Segoe UI", 10F) };
+            tbContent = new Guna2TextBox
+            {
+                Left = 20,
+                Top = 130,
+                Width = 420,
+                Height = 180,
+                Multiline = true,
+                ScrollBars = ScrollBars.Vertical,
+                Font = new System.Drawing.Font("Segoe UI", 10F),
+                AcceptsReturn = true,
+                MaxLength = 0
+            };
+            
+            btnSave = new Guna2Button 
+            { 
+                Text = "Lưu", 
+                Left = (this.ClientSize.Width - 120) / 2, 
+                Top = 350, 
+                Width = 120,
+                Height = 40,
+                BorderRadius = 15,
+                Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold),
+                FillColor = System.Drawing.Color.FromArgb(94, 148, 255),
+                ForeColor = System.Drawing.Color.White
+            };
             btnSave.Click += BtnSave_Click;
 
             this.Controls.Add(lblTitle);
