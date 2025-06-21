@@ -58,7 +58,7 @@ namespace StudentDashboard.GUI
 
         private void LoadUserList()
         {
-            string connectionString = "server=localhost;user=root;database=studentdashboard;port=3306;password=root;";
+            string connectionString = "server=localhost;user=root;database=student-dasboard;port=3306;password=Buihieu195#;";
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();

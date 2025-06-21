@@ -23,6 +23,12 @@ namespace StudentDashboard.GUI
             InitializeComponent();
             tbPassword.PasswordChar = '*';
             this.Load += LoginForm_Load;
+            tbUserName.Enter += tbUserName_Enter;
+            tbUserName.Leave += tbUserName_Leave;
+
+            tbPassword.Enter += tbPassword_Enter;
+            tbPassword.Leave += tbPassword_Leave;
+
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -66,7 +72,7 @@ namespace StudentDashboard.GUI
                         // Tạo đối tượng currentUser
                         UserModel currentUser = new UserModel
                         {
-                            UserID = Convert.ToInt32(reader["user_id"]),
+                            UserID = Convert.ToInt32(reader[" user_id"]),
                             UserName = reader["user_name"].ToString(),
                             Email = reader["user_email"].ToString(),
                             CreatedAt = Convert.ToDateTime(reader["user_created_at"])
@@ -88,7 +94,8 @@ namespace StudentDashboard.GUI
         {
             Close();
         }
-
+        Color placeholderColor = Color.Gray;
+        Color activeTextColor = Color.FromArgb(0,117,214);
         private void LoginForm_Load(object sender, EventArgs e)
         {
             GraphicsPath path = new GraphicsPath();
@@ -100,6 +107,13 @@ namespace StudentDashboard.GUI
             path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
             path.CloseAllFigures();
             btLogin.Region = new Region(path);
+
+            tbUserName.Text = "Username";
+            tbUserName.ForeColor = placeholderColor;
+
+            tbPassword.Text = "Password";
+            tbPassword.ForeColor = placeholderColor;
+            tbPassword.UseSystemPasswordChar = false;
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -115,6 +129,44 @@ namespace StudentDashboard.GUI
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbUserName_Enter(object sender, EventArgs e)
+        {
+            if (tbUserName.Text == "Username")
+            {
+                tbUserName.Text = "";
+                tbUserName.ForeColor = activeTextColor;
+            }
+        }
+
+        private void tbUserName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbUserName.Text))
+            {
+                tbUserName.Text = "Username";
+                tbUserName.ForeColor = placeholderColor;
+            }
+        }
+
+        private void tbPassword_Enter(object sender, EventArgs e)
+        {
+            if (tbPassword.Text == "Password")
+            {
+                tbPassword.Text = "";
+                tbPassword.ForeColor = activeTextColor;
+                tbPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void tbPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                tbPassword.UseSystemPasswordChar = false;
+                tbPassword.Text = "Password";
+                tbPassword.ForeColor = placeholderColor;
+            }
         }
     }
 } 

@@ -50,10 +50,10 @@
             // 
             lbTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 163);
             lbTitle.ForeColor = Color.FromArgb(0, 117, 214);
-            lbTitle.Location = new Point(621, 140);
+            lbTitle.Location = new Point(710, 187);
             lbTitle.Margin = new Padding(2, 0, 2, 0);
             lbTitle.Name = "lbTitle";
-            lbTitle.Size = new Size(344, 47);
+            lbTitle.Size = new Size(393, 63);
             lbTitle.TabIndex = 0;
             lbTitle.Text = "Đăng nhập";
             lbTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -63,26 +63,30 @@
             tbUserName.BorderStyle = BorderStyle.None;
             tbUserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             tbUserName.ForeColor = Color.DarkGray;
-            tbUserName.Location = new Point(701, 220);
-            tbUserName.Margin = new Padding(2);
+            tbUserName.Location = new Point(801, 293);
+            tbUserName.Margin = new Padding(2, 3, 2, 3);
             tbUserName.Name = "tbUserName";
-            tbUserName.Size = new Size(213, 22);
+            tbUserName.Size = new Size(243, 27);
             tbUserName.TabIndex = 2;
             tbUserName.Text = "Username";
             tbUserName.TextChanged += tbUserName_TextChanged;
+            tbUserName.Enter += tbUserName_Enter;
+            tbUserName.Leave += tbUserName_Leave;
             // 
             // tbPassword
             // 
             tbPassword.BorderStyle = BorderStyle.None;
             tbPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             tbPassword.ForeColor = Color.DarkGray;
-            tbPassword.Location = new Point(701, 297);
-            tbPassword.Margin = new Padding(2);
+            tbPassword.Location = new Point(801, 396);
+            tbPassword.Margin = new Padding(2, 3, 2, 3);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(220, 22);
+            tbPassword.Size = new Size(251, 27);
             tbPassword.TabIndex = 4;
             tbPassword.Text = "Password";
             tbPassword.TextChanged += tbPassword_TextChanged;
+            tbPassword.Enter += tbPassword_Enter;
+            tbPassword.Leave += tbPassword_Leave;
             // 
             // btLogin
             // 
@@ -91,10 +95,10 @@
             btLogin.FlatStyle = FlatStyle.Flat;
             btLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btLogin.ForeColor = Color.WhiteSmoke;
-            btLogin.Location = new Point(676, 371);
-            btLogin.Margin = new Padding(2);
+            btLogin.Location = new Point(773, 495);
+            btLogin.Margin = new Padding(2, 3, 2, 3);
             btLogin.Name = "btLogin";
-            btLogin.Size = new Size(261, 39);
+            btLogin.Size = new Size(298, 52);
             btLogin.TabIndex = 5;
             btLogin.Text = "Đăng nhập";
             btLogin.UseVisualStyleBackColor = false;
@@ -103,10 +107,10 @@
             // btBack
             // 
             btBack.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btBack.Location = new Point(818, 440);
-            btBack.Margin = new Padding(2);
+            btBack.Location = new Point(935, 587);
+            btBack.Margin = new Padding(2, 3, 2, 3);
             btBack.Name = "btBack";
-            btBack.Size = new Size(110, 28);
+            btBack.Size = new Size(126, 37);
             btBack.TabIndex = 6;
             btBack.Text = "Quay lại";
             btBack.UseVisualStyleBackColor = true;
@@ -116,10 +120,10 @@
             // 
             pbAvatar.BackColor = Color.Transparent;
             pbAvatar.Image = Properties.Resources.uit_logo1;
-            pbAvatar.Location = new Point(735, 42);
-            pbAvatar.Margin = new Padding(2);
+            pbAvatar.Location = new Point(840, 56);
+            pbAvatar.Margin = new Padding(2, 3, 2, 3);
             pbAvatar.Name = "pbAvatar";
-            pbAvatar.Size = new Size(139, 79);
+            pbAvatar.Size = new Size(159, 105);
             pbAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAvatar.TabIndex = 15;
             pbAvatar.TabStop = false;
@@ -127,28 +131,28 @@
             // pnUserName
             // 
             pnUserName.BackColor = Color.RoyalBlue;
-            pnUserName.Location = new Point(701, 246);
-            pnUserName.Margin = new Padding(2);
+            pnUserName.Location = new Point(801, 328);
+            pnUserName.Margin = new Padding(2, 3, 2, 3);
             pnUserName.Name = "pnUserName";
-            pnUserName.Size = new Size(210, 1);
+            pnUserName.Size = new Size(240, 1);
             pnUserName.TabIndex = 17;
             // 
             // pnPassword
             // 
             pnPassword.BackColor = Color.RoyalBlue;
-            pnPassword.Location = new Point(701, 323);
-            pnPassword.Margin = new Padding(2);
+            pnPassword.Location = new Point(801, 431);
+            pnPassword.Margin = new Padding(2, 3, 2, 3);
             pnPassword.Name = "pnPassword";
-            pnPassword.Size = new Size(210, 1);
+            pnPassword.Size = new Size(240, 1);
             pnPassword.TabIndex = 18;
             // 
             // pbUserName
             // 
             pbUserName.Image = Properties.Resources.person;
-            pbUserName.Location = new Point(666, 222);
-            pbUserName.Margin = new Padding(2);
+            pbUserName.Location = new Point(761, 296);
+            pbUserName.Margin = new Padding(2, 3, 2, 3);
             pbUserName.Name = "pbUserName";
-            pbUserName.Size = new Size(25, 25);
+            pbUserName.Size = new Size(29, 33);
             pbUserName.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUserName.TabIndex = 19;
             pbUserName.TabStop = false;
@@ -156,10 +160,10 @@
             // pbPassword
             // 
             pbPassword.Image = Properties.Resources.password;
-            pbPassword.Location = new Point(666, 299);
-            pbPassword.Margin = new Padding(2);
+            pbPassword.Location = new Point(761, 399);
+            pbPassword.Margin = new Padding(2, 3, 2, 3);
             pbPassword.Name = "pbPassword";
-            pbPassword.Size = new Size(25, 25);
+            pbPassword.Size = new Size(29, 33);
             pbPassword.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPassword.TabIndex = 21;
             pbPassword.TabStop = false;
@@ -168,19 +172,20 @@
             // 
             lbYetAccount.AutoSize = true;
             lbYetAccount.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbYetAccount.Location = new Point(695, 446);
+            lbYetAccount.Location = new Point(794, 595);
             lbYetAccount.Margin = new Padding(2, 0, 2, 0);
             lbYetAccount.Name = "lbYetAccount";
-            lbYetAccount.Size = new Size(108, 15);
+            lbYetAccount.Size = new Size(135, 20);
             lbYetAccount.TabIndex = 22;
             lbYetAccount.Text = "Chưa có tài khoản?";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.welcome;
-            pictureBox2.Location = new Point(-4, -323);
+            pictureBox2.Location = new Point(-5, -431);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(605, 1273);
+            pictureBox2.Size = new Size(691, 1697);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 24;
             pictureBox2.TabStop = false;
@@ -188,10 +193,10 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1012, 659);
+            ClientSize = new Size(1157, 879);
             Controls.Add(pictureBox2);
             Controls.Add(lbYetAccount);
             Controls.Add(pbPassword);
@@ -204,7 +209,7 @@
             Controls.Add(tbPassword);
             Controls.Add(tbUserName);
             Controls.Add(lbTitle);
-            Margin = new Padding(2);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "LoginForm";
             Text = "Đăng nhập";
             Load += LoginForm_Load;

@@ -43,6 +43,7 @@
             pictureBox1 = new PictureBox();
             btAccount = new Button();
             panel2 = new Panel();
+            btnForum = new Button();
             btHome = new Button();
             guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             panel3 = new Panel();
@@ -62,7 +63,6 @@
             panel7 = new Panel();
             textBox10 = new TextBox();
             panel6 = new Panel();
-            this.btnForum = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,9 +82,10 @@
             btnSchedule.Font = new Font("Segoe UI", 12F);
             btnSchedule.ForeColor = SystemColors.Desktop;
             btnSchedule.Image = Properties.Resources.icons8_schedule_24;
-            btnSchedule.Location = new Point(-168, 225);
+            btnSchedule.Location = new Point(-134, 180);
+            btnSchedule.Margin = new Padding(2, 2, 2, 2);
             btnSchedule.Name = "btnSchedule";
-            btnSchedule.Size = new Size(409, 112);
+            btnSchedule.Size = new Size(327, 90);
             btnSchedule.TabIndex = 0;
             btnSchedule.Text = "                                Thời khóa biểu";
             btnSchedule.UseVisualStyleBackColor = true;
@@ -97,10 +98,10 @@
             btnChat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnChat.ForeColor = SystemColors.Desktop;
             btnChat.Image = Properties.Resources.icons8_chat_24;
-            btnChat.Location = new Point(-117, 138);
-            btnChat.Margin = new Padding(4, 3, 4, 3);
+            btnChat.Location = new Point(-94, 110);
+            btnChat.Margin = new Padding(3, 2, 3, 2);
             btnChat.Name = "btnChat";
-            btnChat.Size = new Size(356, 55);
+            btnChat.Size = new Size(285, 44);
             btnChat.TabIndex = 1;
             btnChat.Text = "                  Chat";
             btnChat.UseVisualStyleBackColor = true;
@@ -115,18 +116,18 @@
             panel1.Dock = DockStyle.Top;
             panel1.ForeColor = Color.Snow;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1759, 112);
+            panel1.Size = new Size(1407, 90);
             panel1.TabIndex = 2;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.icons8_notification_24;
-            pictureBox2.Location = new Point(1581, 63);
-            pictureBox2.Margin = new Padding(4, 5, 4, 5);
+            pictureBox2.Location = new Point(1265, 50);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(36, 42);
+            pictureBox2.Size = new Size(29, 34);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -134,10 +135,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.uit_logo1;
-            pictureBox1.Location = new Point(-5, -73);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(-4, -58);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(244, 272);
+            pictureBox1.Size = new Size(195, 218);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -148,9 +149,10 @@
             btAccount.FlatStyle = FlatStyle.Flat;
             btAccount.ForeColor = Color.Black;
             btAccount.Image = Properties.Resources.icons8_account_24;
-            btAccount.Location = new Point(1624, 56);
+            btAccount.Location = new Point(1299, 45);
+            btAccount.Margin = new Padding(2, 2, 2, 2);
             btAccount.Name = "btAccount";
-            btAccount.Size = new Size(120, 53);
+            btAccount.Size = new Size(96, 42);
             btAccount.TabIndex = 4;
             btAccount.UseVisualStyleBackColor = true;
             btAccount.Click += btAccount_Click;
@@ -164,12 +166,28 @@
             panel2.Controls.Add(btnChat);
             panel2.Dock = DockStyle.Left;
             panel2.ForeColor = Color.MintCream;
-            panel2.Location = new Point(0, 112);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(0, 90);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(241, 995);
+            panel2.Size = new Size(193, 754);
             panel2.TabIndex = 3;
             panel2.Paint += panel2_Paint;
+            // 
+            // btnForum
+            // 
+            btnForum.FlatAppearance.BorderSize = 0;
+            btnForum.FlatStyle = FlatStyle.Flat;
+            btnForum.Font = new Font("Segoe UI", 12F);
+            btnForum.ForeColor = SystemColors.Desktop;
+            btnForum.Image = Properties.Resources.icons8_chat_24;
+            btnForum.Location = new Point(-134, 270);
+            btnForum.Margin = new Padding(2, 2, 2, 2);
+            btnForum.Name = "btnForum";
+            btnForum.Size = new Size(327, 56);
+            btnForum.TabIndex = 11;
+            btnForum.Text = "                 Diễn đàn";
+            btnForum.UseVisualStyleBackColor = true;
+            btnForum.Click += btnForum_Click;
             // 
             // btHome
             // 
@@ -179,10 +197,10 @@
             btHome.Font = new Font("Segoe UI", 12F);
             btHome.ForeColor = SystemColors.Desktop;
             btHome.Image = Properties.Resources.icons8_home_24;
-            btHome.Location = new Point(-170, 17);
-            btHome.Margin = new Padding(4, 5, 4, 5);
+            btHome.Location = new Point(-136, 14);
+            btHome.Margin = new Padding(3, 4, 3, 4);
             btHome.Name = "btHome";
-            btHome.Size = new Size(433, 70);
+            btHome.Size = new Size(346, 56);
             btHome.TabIndex = 5;
             btHome.Text = "                            Trang chủ ";
             btHome.UseVisualStyleBackColor = true;
@@ -209,10 +227,10 @@
             panel3.Controls.Add(guna2GradientPanel2);
             panel3.Controls.Add(guna2GradientPanel1);
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(241, 112);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(193, 90);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1518, 402);
+            panel3.Size = new Size(1214, 322);
             panel3.TabIndex = 6;
             // 
             // guna2GradientPanel3
@@ -224,11 +242,11 @@
             guna2GradientPanel3.CustomizableEdges = customizableEdges1;
             guna2GradientPanel3.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(64, 169, 190);
-            guna2GradientPanel3.Location = new Point(1024, 50);
-            guna2GradientPanel3.Margin = new Padding(4, 5, 4, 5);
+            guna2GradientPanel3.Location = new Point(819, 40);
+            guna2GradientPanel3.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
             guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2GradientPanel3.Size = new Size(457, 305);
+            guna2GradientPanel3.Size = new Size(366, 244);
             guna2GradientPanel3.TabIndex = 9;
             // 
             // textBox7
@@ -237,11 +255,11 @@
             textBox7.BorderStyle = BorderStyle.None;
             textBox7.Font = new Font("Sitka Banner", 15F);
             textBox7.ForeColor = SystemColors.MenuBar;
-            textBox7.Location = new Point(154, 158);
-            textBox7.Margin = new Padding(4, 5, 4, 5);
+            textBox7.Location = new Point(123, 126);
+            textBox7.Margin = new Padding(3, 4, 3, 4);
             textBox7.Multiline = true;
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(273, 103);
+            textBox7.Size = new Size(218, 82);
             textBox7.TabIndex = 8;
             textBox7.Text = "Hãy nhớ hoàn thành bài tập nhé !";
             // 
@@ -251,11 +269,11 @@
             textBox8.BorderStyle = BorderStyle.None;
             textBox8.Font = new Font("Sitka Banner", 45F);
             textBox8.ForeColor = SystemColors.MenuBar;
-            textBox8.Location = new Point(0, 117);
-            textBox8.Margin = new Padding(4, 5, 4, 5);
+            textBox8.Location = new Point(0, 94);
+            textBox8.Margin = new Padding(3, 4, 3, 4);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(176, 170);
+            textBox8.Size = new Size(141, 136);
             textBox8.TabIndex = 7;
             textBox8.Text = "20";
             textBox8.TextAlign = HorizontalAlignment.Center;
@@ -266,10 +284,10 @@
             textBox9.BorderStyle = BorderStyle.None;
             textBox9.Font = new Font("Sitka Banner", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox9.ForeColor = SystemColors.MenuBar;
-            textBox9.Location = new Point(4, 22);
-            textBox9.Margin = new Padding(4, 5, 4, 5);
+            textBox9.Location = new Point(3, 18);
+            textBox9.Margin = new Padding(3, 4, 3, 4);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(453, 76);
+            textBox9.Size = new Size(362, 63);
             textBox9.TabIndex = 0;
             textBox9.Text = "NEW HOMEWORK";
             // 
@@ -282,11 +300,11 @@
             guna2GradientPanel2.CustomizableEdges = customizableEdges3;
             guna2GradientPanel2.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel2.FillColor2 = Color.FromArgb(64, 169, 190);
-            guna2GradientPanel2.Location = new Point(531, 50);
-            guna2GradientPanel2.Margin = new Padding(4, 5, 4, 5);
+            guna2GradientPanel2.Location = new Point(425, 40);
+            guna2GradientPanel2.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
             guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientPanel2.Size = new Size(431, 305);
+            guna2GradientPanel2.Size = new Size(345, 244);
             guna2GradientPanel2.TabIndex = 1;
             // 
             // textBox4
@@ -295,11 +313,11 @@
             textBox4.BorderStyle = BorderStyle.None;
             textBox4.Font = new Font("Sitka Banner", 15F);
             textBox4.ForeColor = SystemColors.MenuBar;
-            textBox4.Location = new Point(154, 158);
-            textBox4.Margin = new Padding(4, 5, 4, 5);
+            textBox4.Location = new Point(123, 126);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(273, 103);
+            textBox4.Size = new Size(218, 82);
             textBox4.TabIndex = 8;
             textBox4.Text = "2 blogs đang chờ bạn khám phá!";
             // 
@@ -309,11 +327,11 @@
             textBox5.BorderStyle = BorderStyle.None;
             textBox5.Font = new Font("Sitka Banner", 45F);
             textBox5.ForeColor = SystemColors.MenuBar;
-            textBox5.Location = new Point(0, 117);
-            textBox5.Margin = new Padding(4, 5, 4, 5);
+            textBox5.Location = new Point(0, 94);
+            textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(176, 170);
+            textBox5.Size = new Size(141, 136);
             textBox5.TabIndex = 7;
             textBox5.Text = "2";
             textBox5.TextAlign = HorizontalAlignment.Center;
@@ -324,10 +342,10 @@
             textBox6.BorderStyle = BorderStyle.None;
             textBox6.Font = new Font("Sitka Banner", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox6.ForeColor = SystemColors.MenuBar;
-            textBox6.Location = new Point(4, 22);
-            textBox6.Margin = new Padding(4, 5, 4, 5);
+            textBox6.Location = new Point(3, 18);
+            textBox6.Margin = new Padding(3, 4, 3, 4);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(453, 76);
+            textBox6.Size = new Size(362, 63);
             textBox6.TabIndex = 0;
             textBox6.Text = "NEW BLOGS";
             textBox6.TextChanged += textBox6_TextChanged_1;
@@ -341,11 +359,11 @@
             guna2GradientPanel1.CustomizableEdges = customizableEdges5;
             guna2GradientPanel1.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(64, 169, 190);
-            guna2GradientPanel1.Location = new Point(36, 50);
-            guna2GradientPanel1.Margin = new Padding(4, 5, 4, 5);
+            guna2GradientPanel1.Location = new Point(29, 40);
+            guna2GradientPanel1.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2GradientPanel1.Size = new Size(441, 305);
+            guna2GradientPanel1.Size = new Size(353, 244);
             guna2GradientPanel1.TabIndex = 0;
             // 
             // textBox3
@@ -354,11 +372,11 @@
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Sitka Banner", 15F);
             textBox3.ForeColor = SystemColors.MenuBar;
-            textBox3.Location = new Point(163, 158);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
+            textBox3.Location = new Point(130, 126);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(273, 103);
+            textBox3.Size = new Size(218, 82);
             textBox3.TabIndex = 8;
             textBox3.Text = "Bạn có 20 tin nhắn chưa đọc";
             textBox3.TextChanged += textBox3_TextChanged;
@@ -369,11 +387,11 @@
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Sitka Banner", 45F);
             textBox2.ForeColor = SystemColors.MenuBar;
-            textBox2.Location = new Point(0, 117);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
+            textBox2.Location = new Point(0, 94);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(176, 170);
+            textBox2.Size = new Size(141, 136);
             textBox2.TabIndex = 7;
             textBox2.Text = "20";
             textBox2.TextAlign = HorizontalAlignment.Center;
@@ -384,10 +402,10 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Sitka Banner", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.ForeColor = SystemColors.MenuBar;
-            textBox1.Location = new Point(4, 22);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
+            textBox1.Location = new Point(3, 18);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(453, 76);
+            textBox1.Size = new Size(362, 63);
             textBox1.TabIndex = 0;
             textBox1.Text = "NEW MESSAGES";
             // 
@@ -396,65 +414,51 @@
             panel4.Controls.Add(panel7);
             panel4.Controls.Add(panel6);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(241, 514);
-            panel4.Margin = new Padding(4, 5, 4, 5);
+            panel4.Location = new Point(193, 412);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1518, 593);
+            panel4.Size = new Size(1214, 432);
             panel4.TabIndex = 7;
             // 
             // panel7
             // 
             panel7.Controls.Add(textBox10);
-            panel7.Location = new Point(40, 33);
-            panel7.Margin = new Padding(4, 5, 4, 5);
+            panel7.Location = new Point(32, 26);
+            panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(1209, 555);
+            panel7.Size = new Size(967, 444);
             panel7.TabIndex = 1;
             // 
             // textBox10
             // 
             textBox10.BorderStyle = BorderStyle.None;
             textBox10.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox10.Location = new Point(27, 33);
-            textBox10.Margin = new Padding(4, 5, 4, 5);
+            textBox10.Location = new Point(22, 26);
+            textBox10.Margin = new Padding(3, 4, 3, 4);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(557, 54);
+            textBox10.Size = new Size(481, 45);
             textBox10.TabIndex = 0;
             textBox10.Text = "Homework finished freqency ";
             // 
             // panel6
             // 
-            panel6.Location = new Point(1274, 33);
-            panel6.Margin = new Padding(4, 5, 4, 5);
+            panel6.Location = new Point(1019, 26);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(207, 555);
+            panel6.Size = new Size(166, 444);
             panel6.TabIndex = 0;
-            // 
-            // btnForum
-            // 
-            this.btnForum.FlatAppearance.BorderSize = 0;
-            this.btnForum.FlatStyle = FlatStyle.Flat;
-            this.btnForum.Font = new Font("Segoe UI", 12F);
-            this.btnForum.ForeColor = SystemColors.Desktop;
-            this.btnForum.Image = Properties.Resources.icons8_chat_24;
-            this.btnForum.Location = new Point(-168, 337);
-            this.btnForum.Name = "btnForum";
-            this.btnForum.Size = new Size(409, 70);
-            this.btnForum.TabIndex = 11;
-            this.btnForum.Text = "                 Diễn đàn";
-            this.btnForum.UseVisualStyleBackColor = true;
-            this.btnForum.Click += new System.EventHandler(this.btnForum_Click);
             // 
             // HomePage
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(1759, 1107);
+            ClientSize = new Size(1407, 844);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HomePage";
             Text = "Trang chủ";
             Load += HomePage_Load;
