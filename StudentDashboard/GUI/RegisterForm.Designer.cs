@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             tbUserName = new TextBox();
             tbEmail = new TextBox();
@@ -68,10 +68,12 @@
             tbUserName.Location = new Point(681, 221);
             tbUserName.Margin = new Padding(2);
             tbUserName.Name = "tbUserName";
-            tbUserName.Size = new Size(302, 24);
+            tbUserName.Size = new Size(302, 29);
             tbUserName.TabIndex = 1;
-            tbUserName.Text = " User name ";
+            tbUserName.Text = " Username ";
             tbUserName.TextChanged += tbUserName_TextChanged;
+            tbUserName.Enter += tbUserName_Enter;
+            tbUserName.Leave += tbUserName_Leave;
             // 
             // tbEmail
             // 
@@ -81,10 +83,12 @@
             tbEmail.Location = new Point(683, 299);
             tbEmail.Margin = new Padding(2);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(298, 24);
+            tbEmail.Size = new Size(298, 29);
             tbEmail.TabIndex = 3;
             tbEmail.Text = "Email ";
             tbEmail.TextChanged += tbEmail_TextChanged;
+            tbEmail.Enter += tbEmail_Enter;
+            tbEmail.Leave += tbEmail_Leave;
             // 
             // tbPassword
             // 
@@ -94,10 +98,12 @@
             tbPassword.Location = new Point(683, 379);
             tbPassword.Margin = new Padding(2);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(302, 24);
+            tbPassword.Size = new Size(302, 29);
             tbPassword.TabIndex = 5;
             tbPassword.Text = "Password";
             tbPassword.TextChanged += tbPassword_TextChanged_1;
+            tbPassword.Enter += tbPassword_Enter;
+            tbPassword.Leave += tbPassword_Leave;
             // 
             // lbTitle
             // 
@@ -153,10 +159,12 @@
             tbConfirmPassword.Location = new Point(681, 465);
             tbConfirmPassword.Margin = new Padding(2);
             tbConfirmPassword.Name = "tbConfirmPassword";
-            tbConfirmPassword.Size = new Size(302, 24);
+            tbConfirmPassword.Size = new Size(302, 29);
             tbConfirmPassword.TabIndex = 10;
             tbConfirmPassword.Text = "Confirm Password";
             tbConfirmPassword.TextChanged += tbConfirmPassword_TextChanged;
+            tbConfirmPassword.Enter += tbConfirmPassword_Enter;
+            tbConfirmPassword.Leave += tbConfirmPassword_Leave;
             // 
             // lbAlreadyAccount
             // 
@@ -164,7 +172,7 @@
             lbAlreadyAccount.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbAlreadyAccount.Location = new Point(287, 699);
             lbAlreadyAccount.Name = "lbAlreadyAccount";
-            lbAlreadyAccount.Size = new Size(94, 15);
+            lbAlreadyAccount.Size = new Size(120, 20);
             lbAlreadyAccount.TabIndex = 11;
             lbAlreadyAccount.Text = "Đã có tài khoản?";
             // 
@@ -173,7 +181,7 @@
             guna2CirclePictureBox1.ImageRotate = 0F;
             guna2CirclePictureBox1.Location = new Point(0, 0);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.Size = new Size(55, 60);
             guna2CirclePictureBox1.TabIndex = 12;
@@ -276,7 +284,7 @@
             // 
             // RegisterForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 14F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(1128, 761);

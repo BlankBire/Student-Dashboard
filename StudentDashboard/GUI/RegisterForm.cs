@@ -25,6 +25,8 @@ namespace StudentDashboard.GUI
             this.Load += RegisterForm_Load;
         }
 
+        Color placeholderColor = Color.Gray;
+        Color activeTextColor = Color.FromArgb(0, 120, 215); // Xanh dương
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             // Bo góc cho nút btRegister
@@ -37,6 +39,20 @@ namespace StudentDashboard.GUI
             path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
             path.CloseAllFigures();
             btRegister.Region = new Region(path);
+
+            tbUserName.Text = "Username";
+            tbUserName.ForeColor = placeholderColor;
+
+            tbPassword.Text = "Password";
+            tbPassword.ForeColor = placeholderColor;
+            tbPassword.UseSystemPasswordChar = false;
+
+            tbEmail.Text = "Email";
+            tbEmail.ForeColor = placeholderColor;
+
+            tbConfirmPassword.Text = "Confirm Password";
+            tbConfirmPassword.ForeColor = placeholderColor;
+            tbConfirmPassword.UseSystemPasswordChar = false;
         }
 
         private void btRegister_Click(object sender, EventArgs e)
@@ -165,6 +181,82 @@ namespace StudentDashboard.GUI
         private void tbPassword_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbUserName_Enter(object sender, EventArgs e)
+        {
+            if (tbUserName.Text == "Username")
+            {
+                tbUserName.Text = "";
+                tbUserName.ForeColor = activeTextColor;
+            }
+        }
+
+        private void tbUserName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbUserName.Text))
+            {
+                tbUserName.Text = "Username";
+                tbUserName.ForeColor = placeholderColor;
+            }
+        }
+
+        private void tbEmail_Enter(object sender, EventArgs e)
+        {
+            if (tbEmail.Text == "Email")
+            {
+                tbEmail.Text = "";
+                tbEmail.ForeColor = activeTextColor;
+            }
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbEmail.Text))
+            {
+                tbEmail.Text = "Email";
+                tbEmail.ForeColor = placeholderColor;
+            }
+        }
+
+        private void tbPassword_Enter(object sender, EventArgs e)
+        {
+            if (tbPassword.Text == "Password")
+            {
+                tbPassword.Text = "";
+                tbPassword.ForeColor = activeTextColor;
+                tbPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void tbPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                tbPassword.UseSystemPasswordChar = false;
+                tbPassword.Text = "Password";
+                tbPassword.ForeColor = placeholderColor;
+            }
+        }
+
+        private void tbConfirmPassword_Enter(object sender, EventArgs e)
+        {
+            if (tbConfirmPassword.Text == "Confirm Password")
+            {
+                tbConfirmPassword.Text = "";
+                tbConfirmPassword.ForeColor = activeTextColor;
+                tbConfirmPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void tbConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbConfirmPassword.Text))
+            {
+                tbConfirmPassword.UseSystemPasswordChar = false;
+                tbConfirmPassword.Text = "Confirm Password";
+                tbConfirmPassword.ForeColor = placeholderColor;
+            }
         }
     }
 } 

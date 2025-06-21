@@ -72,7 +72,7 @@ namespace StudentDashboard.GUI
                         // Tạo đối tượng currentUser
                         UserModel currentUser = new UserModel
                         {
-                            UserID = Convert.ToInt32(reader[" user_id"]),
+                            UserID = Convert.ToInt32(reader["user_id"]),
                             UserName = reader["user_name"].ToString(),
                             Email = reader["user_email"].ToString(),
                             CreatedAt = Convert.ToDateTime(reader["user_created_at"])

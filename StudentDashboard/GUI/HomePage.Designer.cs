@@ -30,12 +30,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnSchedule = new Button();
             btnChat = new Button();
             panel1 = new Panel();
@@ -83,7 +83,7 @@
             btnSchedule.ForeColor = SystemColors.Desktop;
             btnSchedule.Image = Properties.Resources.icons8_schedule_24;
             btnSchedule.Location = new Point(-134, 180);
-            btnSchedule.Margin = new Padding(2, 2, 2, 2);
+            btnSchedule.Margin = new Padding(2);
             btnSchedule.Name = "btnSchedule";
             btnSchedule.Size = new Size(327, 90);
             btnSchedule.TabIndex = 0;
@@ -98,7 +98,7 @@
             btnChat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnChat.ForeColor = SystemColors.Desktop;
             btnChat.Image = Properties.Resources.icons8_chat_24;
-            btnChat.Location = new Point(-94, 110);
+            btnChat.Location = new Point(-107, 112);
             btnChat.Margin = new Padding(3, 2, 3, 2);
             btnChat.Name = "btnChat";
             btnChat.Size = new Size(285, 44);
@@ -150,7 +150,7 @@
             btAccount.ForeColor = Color.Black;
             btAccount.Image = Properties.Resources.icons8_account_24;
             btAccount.Location = new Point(1299, 45);
-            btAccount.Margin = new Padding(2, 2, 2, 2);
+            btAccount.Margin = new Padding(2);
             btAccount.Name = "btAccount";
             btAccount.Size = new Size(96, 42);
             btAccount.TabIndex = 4;
@@ -180,8 +180,8 @@
             btnForum.Font = new Font("Segoe UI", 12F);
             btnForum.ForeColor = SystemColors.Desktop;
             btnForum.Image = Properties.Resources.icons8_chat_24;
-            btnForum.Location = new Point(-134, 270);
-            btnForum.Margin = new Padding(2, 2, 2, 2);
+            btnForum.Location = new Point(-134, 274);
+            btnForum.Margin = new Padding(2);
             btnForum.Name = "btnForum";
             btnForum.Size = new Size(327, 56);
             btnForum.TabIndex = 11;
@@ -239,13 +239,13 @@
             guna2GradientPanel3.Controls.Add(textBox7);
             guna2GradientPanel3.Controls.Add(textBox8);
             guna2GradientPanel3.Controls.Add(textBox9);
-            guna2GradientPanel3.CustomizableEdges = customizableEdges1;
+            guna2GradientPanel3.CustomizableEdges = customizableEdges13;
             guna2GradientPanel3.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(64, 169, 190);
             guna2GradientPanel3.Location = new Point(819, 40);
             guna2GradientPanel3.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
-            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2GradientPanel3.Size = new Size(366, 244);
             guna2GradientPanel3.TabIndex = 9;
             // 
@@ -297,13 +297,13 @@
             guna2GradientPanel2.Controls.Add(textBox4);
             guna2GradientPanel2.Controls.Add(textBox5);
             guna2GradientPanel2.Controls.Add(textBox6);
-            guna2GradientPanel2.CustomizableEdges = customizableEdges3;
+            guna2GradientPanel2.CustomizableEdges = customizableEdges15;
             guna2GradientPanel2.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel2.FillColor2 = Color.FromArgb(64, 169, 190);
             guna2GradientPanel2.Location = new Point(425, 40);
             guna2GradientPanel2.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
-            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2GradientPanel2.Size = new Size(345, 244);
             guna2GradientPanel2.TabIndex = 1;
             // 
@@ -356,13 +356,13 @@
             guna2GradientPanel1.Controls.Add(textBox3);
             guna2GradientPanel1.Controls.Add(textBox2);
             guna2GradientPanel1.Controls.Add(textBox1);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges5;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges17;
             guna2GradientPanel1.FillColor = Color.FromArgb(64, 169, 190);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(64, 169, 190);
             guna2GradientPanel1.Location = new Point(29, 40);
             guna2GradientPanel1.Margin = new Padding(3, 4, 3, 4);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2GradientPanel1.Size = new Size(353, 244);
             guna2GradientPanel1.TabIndex = 0;
             // 
@@ -458,7 +458,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "HomePage";
             Text = "Trang chủ";
             Load += HomePage_Load;
