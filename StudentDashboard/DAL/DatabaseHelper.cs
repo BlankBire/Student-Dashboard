@@ -20,7 +20,7 @@ namespace StudentDashboard.DAL
             try
             {
                 MySqlConnection connection = new MySqlConnection(GetConnectionString());
-                connection.Open();
+                //connection.Open();
                 return connection;
             }
             catch (Exception ex)

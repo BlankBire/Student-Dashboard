@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentDashboard.Models
 {
-    class ForumPost
+    public class ForumPost
     {
         public int post_id { get; set; }
         public int user_id { get; set; }
