@@ -108,10 +108,10 @@
             guna2HtmlLabelTitle.BackColor = Color.Transparent;
             guna2HtmlLabelTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             guna2HtmlLabelTitle.ForeColor = Color.FromArgb(0, 117, 214);
-            guna2HtmlLabelTitle.Location = new Point(13, 132);
-            guna2HtmlLabelTitle.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabelTitle.Location = new Point(13, 114);
+            guna2HtmlLabelTitle.Margin = new Padding(2);
             guna2HtmlLabelTitle.Name = "guna2HtmlLabelTitle";
-            guna2HtmlLabelTitle.Size = new Size(785, 58);
+            guna2HtmlLabelTitle.Size = new Size(785, 95);
             guna2HtmlLabelTitle.TabIndex = 2;
             guna2HtmlLabelTitle.Text = "Chào mừng bạn đến với Student Dashboard!";
             guna2HtmlLabelTitle.TextAlignment = ContentAlignment.MiddleCenter;
