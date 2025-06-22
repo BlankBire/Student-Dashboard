@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Guna.UI2.WinForms;
+using StudentDashboard.DAL;
+using Org.BouncyCastle.Tls;
 
 namespace StudentDashboard.GUI
 {
@@ -58,7 +60,7 @@ namespace StudentDashboard.GUI
 
         private void LoadUserList()
         {
-            string connectionString = "server=localhost;user=root;database=studentdashboard;port=3306;password=Buihieu195#;";
+            string connectionString = DatabaseHelper.GetConnectionString();
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -268,7 +270,7 @@ namespace StudentDashboard.GUI
 
         private int GetUserId(string username)
         {
-            string connectionString = "server=localhost;user=root;database=studentdashboard;port=3306;password=root;";
+            string connectionString = DatabaseHelper.GetConnectionString();
             using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -289,7 +291,7 @@ namespace StudentDashboard.GUI
 
         private void SaveMessageToDatabase(string senderUsername, string receiverUsername, string content)
         {
-            string connectionString = "server=localhost;user=root;database=studentdashboard;port=3306;password=root;";
+            string connectionString = DatabaseHelper.GetConnectionString();
             int senderId = GetUserId(senderUsername);
             int receiverId = GetUserId(receiverUsername);
 
@@ -314,7 +316,7 @@ namespace StudentDashboard.GUI
             try
             {
                 panelChat.Controls.Clear();
-                string connectionString = "server=localhost;user=root;database=studentdashboard;port=3306;password=root;";
+                string connectionString = DatabaseHelper.GetConnectionString();
                 int id1 = GetUserId(user1);
                 int id2 = GetUserId(user2);
 
@@ -342,8 +344,13 @@ namespace StudentDashboard.GUI
                             {
                                 int senderId = reader.GetInt32("sender_id");
                                 string senderName = senderId == id1 ? user1 : user2;
-                                string content = reader.GetString("content");
-                                string time = reader.GetDateTime("sent_at").ToString("HH:mm");
+
+                                string content = reader.IsDBNull(reader.GetOrdinal("content")) ? "(Không có nội dung)" : reader.GetString("content");
+
+                                string time = reader.IsDBNull(reader.GetOrdinal("sent_at"))
+                                 ? "??:??"
+                                 : reader.GetDateTime("sent_at").ToString("HH:mm");
+
                                 bool isMine = senderId == id1;
                                 AddChatBubble(senderName, content, time, isMine);
                             }
