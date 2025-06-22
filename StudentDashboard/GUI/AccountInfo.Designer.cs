@@ -198,6 +198,21 @@ namespace StudentDashboard.GUI
             Text = "Thông tin tài khoản";
             Load += AccountInfo_Load;
             ResumeLayout(false);
+            this.Controls.Add(this.tbUserName);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbCreateAT);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblCreateAt);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btLogout);
+            this.Controls.Add(this.btChangePassword);
+            this.Controls.Add(this.btChangeInfo);
+            this.Controls.Add(this.btHome);
+            this.Controls.Add(this.iconUser);
+            this.Controls.Add(this.iconMail);
+            this.Controls.Add(this.iconCalendar);
+
         }
 
         #endregion
@@ -215,5 +230,5 @@ namespace StudentDashboard.GUI
         private PictureBox iconUser;
         private PictureBox iconMail;
         private PictureBox iconCalendar;
+        }
     }
-}

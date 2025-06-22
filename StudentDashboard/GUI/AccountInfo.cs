@@ -21,10 +21,12 @@ namespace StudentDashboard.GUI
         {
             InitializeComponent();
             _currentUser = currentUser;
+
             //HeaderControl header = new HeaderControl(_currentUser);
             //header.Dock = DockStyle.Top;
             //this.Controls.Add(header);
         }
+        
 
         private void AccountInfo_Load(object sender, EventArgs e)
         {

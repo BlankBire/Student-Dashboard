@@ -145,7 +145,7 @@
             btBack.Location = new Point(860, 609);
             btBack.Margin = new Padding(2);
             btBack.Name = "btBack";
-            btBack.Size = new Size(143, 31);
+            btBack.Size = new Size(143, 39);
             btBack.TabIndex = 8;
             btBack.Text = "Quay lại";
             btBack.UseVisualStyleBackColor = false;

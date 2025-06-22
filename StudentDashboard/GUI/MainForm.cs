@@ -25,6 +25,14 @@ namespace StudentDashboard.GUI
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            guna2BtnLogin.Anchor = AnchorStyles.None;
+            guna2BtnRegister.Anchor = AnchorStyles.None;
+            guna2HtmlLabelTitle.Anchor = AnchorStyles.None;
+            CenterControls(); // Định vị lại các nút và tiêu đề khi form được tải
+
         }
         // Xử lý kéo form
         private void pnTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -60,6 +68,14 @@ namespace StudentDashboard.GUI
             }
         }
 
+        //Định vị lại nút giữa màn hình
+        private void CenterControls()
+        {
+            int centerX = this.ClientSize.Width / 2;
+            guna2BtnLogin.Left = centerX - guna2BtnLogin.Width / 2;
+            guna2BtnRegister.Left = centerX - guna2BtnRegister.Width / 2;
+            guna2HtmlLabelTitle.Left = centerX - guna2HtmlLabelTitle.Width / 2;
+        }
 
         private void btRegister_Click(object sender, EventArgs e)
         {
